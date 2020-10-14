@@ -56,7 +56,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
              #directorio de mis plantillas
-            '/home/mrcripto/Desktop/Aplicaciones web/Magic_showcase_final/Templates'
+            BASE_DIR / 'Templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
