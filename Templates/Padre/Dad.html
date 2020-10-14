@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
-    <!-- Bootstrap -->
-    <link href="{% static 'Ventas/Boot/css/bootstrap.min.css' %}" rel="stylesheet">
-
-     <!-- Fonts -->
+    <head>
+        {% load static %}
+        <!-- Bootstrap -->
+        <link href="{% static '/Boot/css/bootstrap.min.css' %}" rel="stylesheet">
     
-     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
-     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-     
-
-    <!-- Styles -->
-    <link href="{% static 'Ventas/Gestion/gestion.css' %}" rel="stylesheet">
-    <!--Titulo-->
+         <!-- Fonts -->
+        
+         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+         
+    
+        <!-- Styles -->
+        <link href="{% static '/Gestion/gestion.css' %}" rel="stylesheet">
+        <!--Titulo-->
+    </head>
 
     <title>
         {% block title %}{% endblock %}
@@ -24,14 +26,46 @@
     <h1 style="background-color: blueviolet; color: cornsilk; text-align: center;">Magic showcase</h1>
     </div>
     {% include "Menu/Menu.html" %}
-    <h5 style="text-align: right;">Vistas hermosas</h5>
     
     {% block content %} 
 
     {% endblock %}
 
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+          <p class="m-0">
+              <a href="#" class="link">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              <a href="#" class="link">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              <a href="#" class="link">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+          </p>
+          <p class="m-0 mbt">
+              <a href="sample.html" class="link">Política de privacidad</a> ·
+              <a href="sample.html" class="link">Aviso legal</a> ·
+              <a href="sample.html" class="link">Cookies</a>
+          </p>
+          <p class="m-0 mbt1">&copy; Gestión de Pedidos 2020</p>
+        </div>
+      </footer>
+  
+
     <!-- Bootstrap -->
-    <script src="{% static 'Ventas/Boot/js/jquery.min.js' %}"></script>
-    <script src="{% static 'Ventas/Boot/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static '/Boot/js/jquery.min.js' %}"></script>
+   <script src="{% static '/Boot/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
