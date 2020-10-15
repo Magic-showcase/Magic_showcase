@@ -5,7 +5,8 @@ class Producto(models.Model):
     Seccion=models.CharField(max_length=50)
     Contenido=models.CharField(max_length=50)
     Precio=models.IntegerField()
-    Imagen=models.ImageField()
+    #guardar sitio adecuado de imagen upload_to
+    Imagen=models.ImageField(upload_to='Tienda')
     Created=models.DateTimeField(auto_now_add=True)
     Update=models.DateTimeField(auto_now_add=True)
     class Meta:

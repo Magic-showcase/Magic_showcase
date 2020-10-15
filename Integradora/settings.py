@@ -126,6 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #carpeta para media 
-MEDIA_URL = '/media'
+MEDIA_URL = '/media/'
 #Donde buscar los archivos multimedia
 MEDIA_ROOT=BASE_DIR / 'media'
