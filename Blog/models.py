@@ -23,9 +23,7 @@ class POST(models.Model):
     #guardar sitio adecuado de imagen upload_to
     Imagen=models.ImageField(upload_to='Blog', null=True, blank=True)
     #si un autor se va se borra el post
-
     Autor=models.ForeignKey(User,on_delete=models.CASCADE)
-    
     #relacion entre post y categoria
     Categorias=models.ManyToManyField(Categoria)
     Created=models.DateTimeField(auto_now_add=True)
@@ -35,4 +33,4 @@ class POST(models.Model):
         verbose_name_plural='POSTS'
     
     def _str_(self):
-        return self.Nombre
+        return self.Titulo
