@@ -60,7 +60,8 @@ TEMPLATES = [
         'DIRS': [
              #directorio de mis plantillas
             BASE_DIR / 'Templates',
-            BASE_DIR / 'Tienda/Templates'
+            BASE_DIR / 'Tienda/Templates',
+            BASE_DIR / 'Blog/Templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
