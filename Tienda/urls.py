@@ -8,3 +8,4 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('Tienda/',views.Tienda,name="Tienda"),
 ]
+
