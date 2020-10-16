@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Nucleo',
     'Control_Vi',
     'Tienda',
+    'Blog',
 ]
 
 MIDDLEWARE = [
