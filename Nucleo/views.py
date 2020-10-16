@@ -7,9 +7,6 @@ from django.shortcuts import render
 def Home(request):
     return render(request,'Central/Home.html')
 
-def Tienda(request):
-    return render(request,'Central/Tienda.html')
-
 def Tutoriales(request):
     return render(request,'Central/Tutoriales.html')
 

@@ -1,6 +1,10 @@
 from django.urls import path
-from Tienda.views import Tienda
+from . import views
+#importar settings para usar 2 variables
+from django.conf import settings
+#importar archivos static
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('Tienda/',Tienda,name="Tienda"),
+    path('Tienda/',views.Tienda,name="Tienda"),
 ]
