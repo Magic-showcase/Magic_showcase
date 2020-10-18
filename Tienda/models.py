@@ -16,3 +16,10 @@ class Producto(models.Model):
     def _str_(self):
         return self.Nombre
 
+class Envio(models.Model):
+    Numero=models.IntegerField()
+    Fecha=models.DateField()
+    Entregado=models.BooleanField()
+    class Meta:
+        verbose_name='Envio'
+        verbose_name_plural='Envios'

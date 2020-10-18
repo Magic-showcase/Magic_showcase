@@ -132,3 +132,16 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 #Donde buscar los archivos multimedia
 MEDIA_ROOT=BASE_DIR / 'media'
+
+#SERVIDOR EMAIL
+
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+#Espesificar el host
+EMAIL_HOST="smtp.gmail.com"
+#Protocolo de seguridad
+EMAIL_USE_TLS=True
+#Puerto
+EMAIL_PORT=587
+#Cuenta 
+EMAIL_HOST_USER="Magic.showcase.questions@gmail.com"
+EMAIL_HOST_PASSWORD="luciernaga44"

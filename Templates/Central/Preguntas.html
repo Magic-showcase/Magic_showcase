@@ -3,10 +3,17 @@
 {% load static %}
 {% block title %} Preguntas {% endblock %}
 {% block content %}
-
-<p>
-	Aqui podras mandar un correo con tu pregunta, sin necesidad de logearte
-</p>
-
-
+<section class="page-section clearfix">
+	<div class="container">
+	  <div class="intro">
+		<h1>Preguntas</h1>
+		<form action="/Preguntas/" method="POST"> {% csrf_token %}
+		  <p>Asunto: <input type="text" name="asunto"></p>
+		  <p>Email: <input type="text" name="email"></p>  
+		  <p>Mensaje: <textarea name="mensaje" rows="15" cols="45"> </textarea></p>  
+		  <input type="submit" value="Enviar">
+		</form>
+	  </div>
+	</div>
+</section>
 {% endblock %}
