@@ -3,7 +3,16 @@
 {% load static %}
 {% block title %} Blog {% endblock %}
 {% block content %}
-
+<section>
+	<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
+		Categorias:
+		{%for POST in post %} 
+			{% for Categoria in POST.Categorias.all %}
+				{{Categoria.Nombre}} &nbsp;&nbsp;&nbsp;
+			{% endfor %}
+		{% endfor %}
+	</div>
+</section>
 {%for POST in post %} 
 <section class="page-section clearfix">
 	<div class="container">
@@ -12,15 +21,19 @@
 		<div class="intro-text left-0 text-center bg-faded p-5 rounded">
 		  <h2 class="section-heading mb-4" >
 			<span class="section-heading-lower" style="color: aqua;">{{POST.Titulo}}</span>
-			<span class="section-heading-upper">{{POST.Autor}}</span>
+			
 			<span class="section-heading-upper">{{POST.Contenido}}</span>
-			<span class="section-heading-lower">{{POST.Categorias}}</span>
 		  </h2>
+		  <div style="text-align: left; font-size: 0.8em;">
+			<span class="section-heading-upper">Autor: {{POST.Autor}}</span>
+		  </div>
 		</div>
 	  </div>
 	</div>
   </section>
  
 {% endfor %}
+
+
 
 {% endblock %}
