@@ -19,7 +19,7 @@ class Categoria(models.Model):
 
 class POST(models.Model):
     Titulo=models.CharField(max_length=50)
-    Contenido=models.CharField(max_length=50)
+    Contenido=models.TextField()
     #guardar sitio adecuado de imagen upload_to
     Imagen=models.ImageField(upload_to='Blog', null=True, blank=True)
     #si un autor se va se borra el post
