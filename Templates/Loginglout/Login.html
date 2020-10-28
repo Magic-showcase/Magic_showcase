@@ -1,0 +1,26 @@
+{% extends "Padre/Dad.html"  %}
+<!--Cargar carpeta static-->
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="login-content">
+            <div class="login-logo">
+            </div>
+            <div class="login-form">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Nombre de usuario</label>
+                        <input type="text" class="from-control" placeholder="Nombre de usuario" name="username">
+                    </div>
+                    <div class="from-group">
+                        <label>Contraseña</label>
+                        <input type="password" class="from-control" placeholder="contraseña" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-succes btn-flat m-b-30 m-t-30">Iniciar sesión </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

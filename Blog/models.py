@@ -14,7 +14,7 @@ class Categoria(models.Model):
         verbose_name_plural='Categorias'
     
     def _str_(self):
-        return self.Nombre
+        return str(self.Nombre)
 
 
 class POST(models.Model):
@@ -33,4 +33,4 @@ class POST(models.Model):
         verbose_name_plural='POSTS'
     
     def _str_(self):
-        return self.Titulo
+        return str(self.Titulo)

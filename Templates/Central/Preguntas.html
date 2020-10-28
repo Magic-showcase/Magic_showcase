@@ -4,8 +4,7 @@
 {% block title %} Preguntas {% endblock %}
 {% block content %}
 <section class="page-section clearfix">
-	<div class="container">
-	  <div class="intro">
+	<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
 		<h1>Preguntas</h1>
 		<form action="/Preguntas/" method="POST"> {% csrf_token %}
 		  <p>Asunto: <input type="text" name="asunto"></p>
@@ -13,7 +12,6 @@
 		  <p>Mensaje: <textarea name="mensaje" rows="15" cols="45"> </textarea></p>  
 		  <input type="submit" value="Enviar">
 		</form>
-	  </div>
 	</div>
 </section>
 {% endblock %}
