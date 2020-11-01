@@ -21,12 +21,7 @@
         {% block title %}{% endblock %}
     </title>
 </head>
-<body>
- 
-    <div class="container">
-     <h1 style="background-color: blueviolet; color: cornsilk; text-align: center;">Magic showcase</h1>
-    </div>
-    
+<body>   
     <!--Incluir menu-->
     {% include "Menu/Menu.html" %}
     <!--Contenido Cambiante-->
@@ -58,9 +53,9 @@
               </a>
           </p>
           <p class="m-0 mbt">
-              <a href="sample.html" class="link">Política de privacidad</a> ·
-              <a href="sample.html" class="link">Aviso legal</a> ·
-              <a href="sample.html" class="link">Cookies</a>
+              <a href="{% url 'Home' %}" class="link">Política de privacidad</a> ·
+              <a href="{% url 'Home' %}" class="link">Aviso legal</a> ·
+              <a href="{% url 'Home' %}" class="link">Cookies</a>
           </p>
           <p class="m-0 mbt1">&copy; Magic_Showcase 2020</p>
         </div>
