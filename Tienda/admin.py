@@ -17,4 +17,3 @@ class Envioadmin(admin.ModelAdmin):
 admin.site.register(Producto,Productoadmin)
 #Registro de table Envio
 admin.site.register(Envio,Envioadmin)
-#f
