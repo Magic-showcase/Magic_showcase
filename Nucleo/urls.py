@@ -1,5 +1,5 @@
 from django.urls import path
-from Nucleo.views import Home,Tutoriales,Preguntas,Contactos
+from Nucleo.views import Home,Tutoriales,Preguntas,Contactos,Memberships
 #importar settings para usar 2 variables
 from django.conf import settings
 #importar archivos static
@@ -10,6 +10,7 @@ urlpatterns = [
     path('Tutoriales/',Tutoriales,name="Tutoriales"),
     path('Preguntas/',Preguntas,name="Preguntas"),
     path('Contactos/',Contactos,name="Contactos"),
+    path('Memberships/',Memberships,name="Memberships"),
 ]
 
 #Agregar Urls
