@@ -1,1 +1,32 @@
 
+{% extends "Padre/Dad.html"  %}
+<!--Cargar carpeta static-->
+{% load static %}
+{% block title %} Membresia {% endblock %}
+{% block content %}
+
+
+<section >
+    
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text left-0 text-left bg-faded p-2 rounded">
+          <h2 class="section-heading mb-1" >
+            <span class="section-heading-upper">Adquierela ya!</span>
+            <span class="section-heading-lower">BENEFI-SOCIO</span>
+          </h2>
+          <p class="mb-2">Obten mayores beneficios con tu MEMBERSHIP!.
+          </p>   
+	  <p class="mb-2">Mayor variedad de productos te estan esperando.
+          </p> 
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container p-1 my-3 bg-primary text-white" style="text-align:center;">
+    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static '/Img/Flyer01.jpg' %}" alt="">
+</div>
+
+
+
+{% endblock %}
