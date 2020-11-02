@@ -11,7 +11,10 @@ def Tutoriales(request):
     return render(request,'Central/Tutoriales.html')
 
 def Preguntas(request):
-    return render(request,'Central/Preguntas.html')
+    return render(request,'Central/Preguntas.html
+                  
+def Memberships(request):
+    return render(request,'Central/Memberships.html')
 
 def Contactos(request):
     return render(request,'Central/Contactos.html')
