@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Control_Vi',
     'Tienda',
     'Blog',
+    'Online_garage_store',
 ]
 
 MIDDLEWARE = [
