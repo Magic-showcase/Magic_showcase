@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 class Vendedor(models.Model):
     Usuario=models.ForeignKey(User,on_delete=models.DO_NOTHING,default=None)
     Foto=models.ImageField(upload_to='Online_garage_store')
