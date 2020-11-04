@@ -4,6 +4,11 @@
 {% block title %} Tutoriales {% endblock %}
 {% block content %}
 
+{% for Tutoriales in tutorial %}
 
+{{Tutoriales.Titulo}}
+{{Tutoriales.Contenido}}
+
+{% endfor %}
 
 {% endblock %}
