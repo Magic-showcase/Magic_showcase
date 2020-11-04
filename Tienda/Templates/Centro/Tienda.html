@@ -1,17 +1,16 @@
 {% extends "Padre/Dad.html"  %}
 <!--Cargar carpeta static-->
 {% load static %}
+
 {% block title %} Tienda {% endblock %}
 {% block content %}
 <!--Producto class model,articulo variable-->
-
-
-
 <section class="sections random-product">
     <div class="container-fluid">
         <div class="container">
             <div class="row">
 				{%for Producto in articulo %}
+
                 <div class="col-md-4">
                     <div class="card">
                         <img class="card-img-top" src="{{Producto.Imagen.url}}" alt="Card image cap">
@@ -37,5 +36,7 @@
         </div><!--.container-->
     </div><!--.container-fluid-->
 </section>
+
+
 
 {% endblock %}
