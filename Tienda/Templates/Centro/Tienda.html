@@ -4,42 +4,38 @@
 {% block title %} Tienda {% endblock %}
 {% block content %}
 <!--Producto class model,articulo variable-->
-	{%for Producto in articulo %}
-
- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
- <section class="hero">
-  <div class="container">
-   <div class="row">
-	<div class="col-lg-6 offset-lg-3">
-	 <div class="cardbox shadow-lg bg-white">
-	  <div class="cardbox-heading">
-	   <div class="media m-0">
-		<div class="media-body">
-		 <p class=" m-0">{{Producto.Nombre}}</p>
-		 <small><span><i class="section-heading-lower icon ion-md-pin"></i>{{Producto.Seccion}}</span></small>
-		 <small><span><i class="icon ion-md-time"></i>{{Producto.Precio}}</span></small>
-		</div>
-	   </div>
-	  </div>
-	  <div class="cardbox-item " >
-	   <img class="img-fluid" src="{{Producto.Imagen.url}}" alt="Image">
-	  </div>
-	  <div class="cardbox-base " >
-		<p>{{Producto.Contenido}}</p>
-	  </div>
-	  <div class="cardbox-comments">
-	   <div class="search">
-		<input placeholder="Write a comment" type="text">
-		<button><i class="fa fa-camera"></i></button>
-	   </div>
-	  </div>			  
-			 
-	 </div>
 
 
-   </div>
-  </div>
- </section>
-	
-	{% endfor %}
+
+<section class="sections random-product">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+				{%for Producto in articulo %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{Producto.Imagen.url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">
+								<a  class="text-danger">{{Producto.Nombre}}</a>
+								<br>
+                                <a class="text-dark">{{Producto.Contenido}}</a>
+							</h5>
+                        </div>
+                        <div class="card-footer">
+                            <div class="badge badge-danger float-right">Comparar</div>
+                            <div class="float-left">
+                                <a href="#" class="text-danger">${{Producto.Precio}}</a>
+                                <br>
+                                <small class="text-muted">{{Producto.Seccion}}</small>
+                            </div>
+                        </div>
+                    </div>
+				</div><!--.col-->
+				{% endfor %}
+            </div><!--.row-->
+        </div><!--.container-->
+    </div><!--.container-fluid-->
+</section>
+
 {% endblock %}
