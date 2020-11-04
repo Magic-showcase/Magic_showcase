@@ -1,5 +1,5 @@
 from django.urls import path
-from Nucleo.views import Home,Tutoriales,Preguntas,Contactos
+from Nucleo.views import Home,Preguntas,Contactos
 #importar settings para usar 2 variables
 from django.conf import settings
 #importar archivos static
@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('',Home, name="Home"),
-    path('Tutoriales/',Tutoriales,name="Tutoriales"),
     path('Preguntas/',Preguntas,name="Preguntas"),
     path('Contactos/',Contactos,name="Contactos"),
 ]
