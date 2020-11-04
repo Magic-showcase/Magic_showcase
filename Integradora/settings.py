@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Control_Vi',
     'Tienda',
     'Blog',
+    
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,8 @@ TEMPLATES = [
              #directorio de mis plantillas
             BASE_DIR / 'Templates',
             BASE_DIR / 'Tienda/Templates',
-            BASE_DIR / 'Blog/Templates'
+            BASE_DIR / 'Blog/Templates',
+            BASE_DIR / 'Tutorials/Templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
