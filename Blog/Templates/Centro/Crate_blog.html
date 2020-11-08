@@ -1,0 +1,17 @@
+{% extends "Padre/Dad.html"  %}
+<!--Cargar carpeta static-->
+{% load static %}
+{% block title %} Nuevo Blog {% endblock %}
+{% block content %}
+    
+    <form style="width: 75%; margin: auto; text-align: center;color: cornsilk;" action="/Crear_Blog/" method="POST">
+        {% csrf_token %}
+        <h3> Nuevo Blog</h3>
+        <p>Titulo: <input type="text" name="Titulo"> </p>
+        <p>Contenido: <textarea name="Contenido" rows="15" cols="45"> </textarea> </p>
+        <p>Autor:<input type="text" name="Autor"> </p>
+        <p>Categorias: <input type="text" name="Categorias"> </p>
+        <input type="submit" value="Crear">
+
+    </form>
+{% endblock %}

@@ -4,7 +4,7 @@
 {% block title %} Preguntas {% endblock %}
 {% block content %}
 <section class="page-section clearfix">
-	<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
+	<div style="width: 75%; margin: auto; text-align: center;color: cornsilk; background: {% static '/Img/principal.jpg' %};">
 		<h1>Preguntas</h1>
 		<form action="/Preguntas/" method="POST"> {% csrf_token %}
 		  <p>Asunto: <input type="text" name="asunto"></p>
