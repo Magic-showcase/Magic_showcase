@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 #Importart path y include
 from django.urls import path,include
-
+from Log_in_out import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
