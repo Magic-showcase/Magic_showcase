@@ -1,7 +1,6 @@
 from django.db import models
 #importar clase user
-
-from django.contrib.auth.models import User
+from Usuario.models import Users
 
 # Create your models here.
 
@@ -23,7 +22,7 @@ class POST(models.Model):
     #guardar sitio adecuado de imagen upload_to
     Imagen=models.ImageField(upload_to='Blog', null=True, blank=True)
     #si un autor se va se borra el post
-    Autor=models.ForeignKey(User,on_delete=models.CASCADE)
+    Autor=models.ForeignKey(Users,on_delete=models.CASCADE)
     #relacion entre post y categoria
     Categorias=models.ManyToManyField(Categoria)
     Created=models.DateTimeField(auto_now_add=True)
