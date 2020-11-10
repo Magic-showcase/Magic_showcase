@@ -18,7 +18,7 @@ class Envioadmin(admin.ModelAdmin):
 
 class Venta_descrip_admin(admin.ModelAdmin):
     model=Venta_descrip
-    list_display=['Cliente','Cantidad']
+    list_display=['Cliente','Cantidad','Producto','Precio_unitario']
     list_filter=('Cliente','Producto')
 
 class Venta_admin(admin.ModelAdmin):

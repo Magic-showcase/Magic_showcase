@@ -29,7 +29,7 @@
 	  <div class="cardbox-heading">
 	   <div class="media m-0">
 		<div class="d-flex mr-3">
-		 <a href=""><img class="img-fluid rounded-circle" src="/media/Cont/YOOOOOOOO.jpg" alt="User"></a>
+		 <a href=""><img class="img-fluid rounded-circle" src="{{POST.Autor.Photo.url}}" alt="User"></a>
 		</div>
 		<div class="media-body">
 		 <p class=" m-0">{{POST.Autor}}</p>
@@ -40,7 +40,9 @@
 	  </div><!--/ cardbox-heading -->
 	   
 	  <div class="cardbox-item " >
-	   <img class="img-fluid" src="{{POST.Imagen.url}}" alt="Image">
+		{% if POST.Imagen %}
+	   		<img class="img-fluid" src="{{POST.Imagen.url}}" alt="Image">
+		{% endif %}
 	  </div><!--/ cardbox-item -->
 	  <div class="cardbox-base " >
 		<p>{{POST.Contenido}}</p>
