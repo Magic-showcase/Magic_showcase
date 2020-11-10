@@ -16,22 +16,6 @@
 </section>
 
 {%for POST in post %} 
-<<<<<<< HEAD
-<img src="{{POST.Autor.Photo.url}}" alt="">
-<section class="page-section clearfix">
-	<div class="container">
-	  <div class="intro">
-		<img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{POST.Imagen.url}}" alt="" style="width:50%;">
-		<div class="intro-text left-0 text-center bg-faded p-5 rounded">
-		  <h2 class="section-heading mb-4" >
-			<span class="section-heading-lower" style="color: aqua;">{{POST.Titulo}}</span>
-			
-			<span class="section-heading-upper">{{POST.Contenido}}</span>
-		  </h2>
-		  <div style="text-align: left; font-size: 0.8em;">
-			<span class="section-heading-upper">Autor: {{POST.Autor}}</span>
-		  </div>
-=======
 
  <!--ejamplo-->
  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -45,8 +29,7 @@
 	  <div class="cardbox-heading">
 	   <div class="media m-0">
 		<div class="d-flex mr-3">
-		 <a href=""><img class="img-fluid rounded-circle" src="/media/Cont/YOOOOOOOO.jpg" alt="User"></a>
->>>>>>> master
+		 <a href=""><img class="img-fluid rounded-circle" src="{{POST.Autor.Photo.url}}" alt="User"></a>
 		</div>
 		<div class="media-body">
 		 <p class=" m-0">{{POST.Autor}}</p>
