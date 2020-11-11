@@ -64,6 +64,7 @@ TEMPLATES = [
             BASE_DIR / 'Templates',
             BASE_DIR / 'Tienda/Templates',
             BASE_DIR / 'Blog/Templates',
+            BASE_DIR / 'Usuario/Templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

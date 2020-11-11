@@ -23,4 +23,5 @@ urlpatterns = [
     path('',include('Control_Vi.urls')),
     path('',include('Tienda.urls')),
     path('',include('Blog.urls')),
+    path('',include('Usuario.urls')),
 ]
