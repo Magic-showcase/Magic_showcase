@@ -3,16 +3,24 @@
 {% load static %}
 {% block title %} Blog {% endblock %}
 {% block content %}
-
+<br>
 <section>
-	<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
-		Categorias:
-		{%for POST in post %} 
-			{% for Categoria in POST.Categorias.all %}
-				{{Categoria.Nombre}} &nbsp;&nbsp;&nbsp;
-			{% endfor %}
-		{% endfor %}
-	</div>
+	<div class="btn-group"></div>
+		<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				Categorias
+			</button>
+			<div class="dropdown-menu">
+				{%for POST in post %} 
+					{% for Categoria in POST.Categorias.all %}
+		   				<a class="dropdown-item" href="#">{{Categoria.Nombre}}</a>
+		   			{% endfor %}
+				{% endfor %}
+			</div>	
+			<button type="button" class="btn btn-primary" onclick="location.href='/Crear_Blog/'">Nuevo Blog</button>
+		</div>
+	</div>	
+	<br>
 </section>
 
 {%for POST in post %} 
@@ -49,7 +57,7 @@
 	  </div><!--/ cardbox-base -->
 	  <div class="cardbox-comments">
 	   <span class="comment-avatar float-left">
-		<a href=""><img class="rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>                            
+		<a href=""><img class="rounded-circle" src="{{POST.Autor.Photo.url}}" alt="..."></a>                            
 	   </span>
 	   <div class="search">
 		<input placeholder="Write a comment" type="text">
