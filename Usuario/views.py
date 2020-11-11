@@ -1,5 +1,5 @@
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login , logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.utils import IntegrityError
@@ -20,3 +20,8 @@ def Logins(request):
             return render(request,'Centro/Login.html',{'error':'Usuario y/o contraseña erronea'})
     
     return render(request,'Centro/Login.html' )
+
+@login_required
+def Logouts_(request):
+    logout(request)
+    return redirect('Home')

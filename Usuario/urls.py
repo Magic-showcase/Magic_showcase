@@ -7,4 +7,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('Login/',views.Logins,name="Login"),
+    path('Logout/',views.Logouts_,name="Logout"),
 ]
