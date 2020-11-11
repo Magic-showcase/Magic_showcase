@@ -13,7 +13,9 @@
 			<div class="dropdown-menu">
 				{%for POST in post %} 
 					{% for Categoria in POST.Categorias.all %}
-		   				<a class="dropdown-item" href="#">{{Categoria.Nombre}}</a>
+						{% if Categoria %}
+						   <a class="dropdown-item" href="#">{{Categoria.Nombre}}</a>
+						{% endif %}
 		   			{% endfor %}
 				{% endfor %}
 			</div>	

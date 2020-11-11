@@ -15,7 +15,7 @@ def CreateBog(request):
         Ti=request.POST["Titulo"]
         Con=request.POST["Contenido"]
         Cat= Categoria.objects.get(Nombre="Terror")
-        Autor= Users.user.objects.get(first_name="Rene")
+        Autor= Users.objects.get(user_id=1)
         POST5 = POST.objects.create(Titulo="Prueba",Contenido="adsdasdasdasd",Autor=Autor,Categorias=Cat)
         POST5.save()
         #return render(request,"Centro/gracias.html")
