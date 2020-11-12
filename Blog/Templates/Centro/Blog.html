@@ -19,7 +19,7 @@
 		   			{% endfor %}
 				{% endfor %}
 			</div>	
-			<button type="button" class="btn btn-primary" onclick="location.href='/Crear_Blog/'">Nuevo Blog</button>
+			 <button type="button" class="btn btn-primary" onclick="location.href='/Crear_Blog/'">Nuevo Blog</button>
 		</div>
 	</div>	
 	<br>
@@ -39,7 +39,10 @@
 	  <div class="cardbox-heading">
 	   <div class="media m-0">
 		<div class="d-flex mr-3">
-		 <a href=""><img class="img-fluid rounded-circle" src="{{POST.Autor.Photo.url}}" alt="User"></a>
+			
+		  <a href=""><img class="img-fluid rounded-circle" src="{{POST.Autor.Photo.url}}" alt="User"></a>
+			<!--<a href=""><img class="img-fluid rounded-circle" src="/media/Usuario/audifonos.jpeg" alt="User"></a>-->
+
 		</div>
 		<div class="media-body">
 		 <p class=" m-0">{{POST.Autor}}</p>
@@ -59,7 +62,7 @@
 	  </div><!--/ cardbox-base -->
 	  <div class="cardbox-comments">
 	   <span class="comment-avatar float-left">
-		<a href=""><img class="rounded-circle" src="{{POST.Autor.Photo.url}}" alt="..."></a>                            
+		<a href=""><img class="rounded-circle" src="{{request.user.Photo.url}}" alt="..."></a>                            
 	   </span>
 	   <div class="search">
 		<input placeholder="Write a comment" type="text">

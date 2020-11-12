@@ -2,9 +2,13 @@
 from django.contrib.auth import authenticate, login , logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
 from .models import Users
+
+
+from Usuario.forms import Perilmodi
 
 def Logins(request):
     if request.method == 'POST':
@@ -51,4 +55,20 @@ def Regi(request):
 @login_required
 def modi(request):
 
-    return render(request,'Centro/Perfil.html')
+    perfil = request.user.users
+
+    if request.method == 'POST':
+        form = Perilmodi(request.POST,request.FILES)
+        if form.is_valid():
+            data = form.cleaned_data
+            Users.Photo = data['Photo']
+            #Users.country = data['country']
+            #Users.bio = data['bio']
+            Users.save()
+            messages.success(request,'perfil actualizado!')
+            return redirect('Blog')
+        
+    else:
+        form = Perilmodi()
+
+    return render(request=request,template_name='Centro/Perfil.html',context={'Users':Users,'user':request.user,'form':form})

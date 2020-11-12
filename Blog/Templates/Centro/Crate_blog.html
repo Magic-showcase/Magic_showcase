@@ -3,9 +3,9 @@
 {% load static %}
 {% block title %} Nuevo Blog {% endblock %}
 {% block content %}
-    
     <form style="width: 75%; margin: auto; text-align: center;color: cornsilk;" action="/Crear_Blog/" method="POST">
         {% csrf_token %}
+        @ {{request.user.email}}
         <h3> Nuevo Blog</h3>
         <p>Titulo: <input type="text" name="Titulo"> </p>
         <p>Contenido: <textarea name="Contenido" rows="15" cols="45"> </textarea> </p>
