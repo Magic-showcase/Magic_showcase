@@ -2,6 +2,12 @@
 {% load static %}
 {% block title %} Login {% endblock %}   
 {% block content %}
+    {% if error %}
+     <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Lo siento!</strong> {{error}}
+      </div>
+    {%  endif  %}
 <div id="login" class="Login_body">
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
@@ -12,27 +18,27 @@
                         <h3 class="text-center text-info">Login</h3>
                         <div class="form-group">
                             <label for="username" class="text-info">Alias:</label><br>
-                            <input type="text" name="username" id="username" class="form-control">
+                            <input type="text" name="username" id="username" class="form-control" required="true">
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-info">Password:</label><br>
-                            <input type="text" name="password" id="password" class="form-control">
+                            <input type="password" name="password" id="password" class="form-control" required="true">
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-info">Confirmar password:</label><br>
-                            <input type="text" name="Passwd_confir" id="Passwd_confir" class="form-control">
+                            <input type="password" name="Passwd_confir" id="Passwd_confir" class="form-control" required="true">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-info">Nombre:</label><br>
-                            <input type="text" name="Nombre" id="Nombre" class="form-control">
+                            <label for="username" class="text-info">Nombre:</label><br>
+                            <input type="text" name="Nombre" id="Nombre" class="form-control" required="true">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-info">Apellido:</label><br>
-                            <input type="text" name="Apellido" id="Apellido" class="form-control">
+                            <label for="username" class="text-info">Apellido:</label><br>
+                            <input type="text" name="Apellido" id="Apellido" class="form-control" required="true">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-info">Email:</label><br>
-                            <input type="text" name="Email" id="Email" class="form-control">
+                            <label for="email" class="text-info">Email:</label><br>
+                            <input type="email" name="Email" id="Email" class="form-control" required="true">
                         </div>
                         <button class="btn btn-primary btn-blck" type="submit">crear</button>
                     </form>

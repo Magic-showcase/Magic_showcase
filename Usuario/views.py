@@ -33,11 +33,12 @@ def Regi(request):
         password_confirmacion = request.POST['Passwd_confir']
         
         if password != password_confirmacion:
-            return render(request, 'Centro/Singup.html',{'error':'la pasword no concuerda'})
+            return render(request, 'Centro/Singup.html',{'error':'Las contraseñas no coinciden '})
         try:
             usernu = User.objects.create_user(username=username,password=password)
         except IntegrityError:
-            return render(request, 'Centro/Singup.html',{'error':'Este usuario ya existe'})
+            return render(request, 'Centro/Singup.html',{'error':'Usuario en existencia '})
+
         usernu.first_name = request.POST['Nombre']
         usernu.last_name = request.POST['Apellido']
         usernu.email = request.POST['Email']
@@ -49,4 +50,5 @@ def Regi(request):
 
 @login_required
 def modi(request):
+
     return render(request,'Centro/Perfil.html')
