@@ -46,3 +46,7 @@ def Regi(request):
         return redirect('Login')
 
     return render(request,'Centro/Singup.html')
+
+@login_required
+def modi(request):
+    return render(request,'Centro/Perfil.html')
