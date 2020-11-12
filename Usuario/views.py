@@ -25,3 +25,24 @@ def Logins(request):
 def Logouts_(request):
     logout(request)
     return redirect('Home')
+
+def Regi(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']  
+        password_confirmacion = request.POST['Passwd_confir']
+        
+        if password != password_confirmacion:
+            return render(request, 'Centro/Singup.html',{'error':'la pasword no concuerda'})
+        try:
+            usernu = User.objects.create_user(username=username,password=password)
+        except IntegrityError:
+            return render(request, 'Centro/Singup.html',{'error':'Este usuario ya existe'})
+        usernu.first_name = request.POST['Nombre']
+        usernu.last_name = request.POST['Apellido']
+        usernu.email = request.POST['Email']
+        usernu.save()
+
+        return redirect('Login')
+
+    return render(request,'Centro/Singup.html')
