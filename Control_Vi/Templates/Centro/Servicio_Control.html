@@ -1,0 +1,29 @@
+
+{% extends "Padre/Dad.html"  %}
+<!--Cargar carpeta static-->
+{% load static %}
+{% block title %} Showcase {% endblock %}
+{% block content %}
+
+<!--<html lang="{{ LANGUAGE_CODE }}">-->
+
+		<div class="grid-wrapper mt-5" style="color: antiquewhite;">
+			<div class="alert-system mt-5">
+				<form action="/Servicio_Control/" method="POST">
+					{% csrf_token %}
+					{% if serial_error %}
+					<div class="alert alert-danger alert-dismissible fade show">
+					   <button type="button" class="close" data-dismiss="alert">&times;</button>
+					   <strong>Al parecer no se estableció la conexión !</strong> ¿Conectaste tu vitrina?
+					 </div>
+				   {% endif %}
+					<input type="submit" style="visibility: hidden; width:300px;" />
+					<input type="text" class='input-button' id='datos' name="datos" placeholder="Datos ..." style="width:282px;">
+					<span class="help-block">Mensaje para arduino</span>
+					<div class="license">
+					</div>
+				</form>
+			</div>
+		</div>
+		<br>
+{% endblock %}
