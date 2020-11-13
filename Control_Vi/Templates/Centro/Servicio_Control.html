@@ -4,26 +4,48 @@
 {% load static %}
 {% block title %} Showcase {% endblock %}
 {% block content %}
-
-<!--<html lang="{{ LANGUAGE_CODE }}">-->
-
-		<div class="grid-wrapper mt-5" style="color: antiquewhite;">
-			<div class="alert-system mt-5">
-				<form action="/Servicio_Control/" method="POST">
-					{% csrf_token %}
-					{% if serial_error %}
-					<div class="alert alert-danger alert-dismissible fade show">
-					   <button type="button" class="close" data-dismiss="alert">&times;</button>
-					   <strong>Al parecer no se estableció la conexión !</strong> ¿Conectaste tu vitrina?
-					 </div>
-				   {% endif %}
-					<input type="submit" style="visibility: hidden; width:300px;" />
-					<input type="text" class='input-button' id='datos' name="datos" placeholder="Datos ..." style="width:282px;">
-					<span class="help-block">Mensaje para arduino</span>
-					<div class="license">
-					</div>
-				</form>
-			</div>
+ <section class="hero mt-5">
+	<div class="container">
+	 <div class="row">
+	  <div class="col-lg-6 offset-lg-3">
+	   <div class="cardbox shadow-lg bg-white">
+		<div class="cardbox-heading">
+		 <div class="media m-0">
+		  <div class="d-flex mr-3">
+			<a href=""><img class="img-fluid rounded-circle" src="/media/Usuario/asta-black-clover.jpg" alt="User"></a>
+		  </div>
+		  <div class="media-body">
+		   <p class=" m-0">{{request.user.username}}</p>
+		   <small><span><i class="section-heading-lower icon ion-md-pin"></i>Nombre vitrina</span></small>
+		   <small><span><i class="icon ion-md-time"></i>Fecha_modificacion</span></small>
+		  </div>
+		 </div>
+		</div> 
+		<div class="cardbox-item " >
+				 <img class="img-fluid" src="/media/Blog/Slenderman.gif" alt="Image">
 		</div>
-		<br>
+		<div class="cardbox-base " >
+			<form action="/Servicio_Control/" method="POST" style="color: antiquewhite; text-align: center;">
+				{% csrf_token %}
+				 {% if serial_error %}
+					 <div class="alert alert-danger alert-dismissible fade show">
+					 <button type="button" class="close" data-dismiss="alert">&times;</button>
+					 <strong>Upss! Al parecer no se estableció la conexión</strong> ¿Conectaste tu vitrina?
+					</div>
+				 {% endif %}					
+				 <button type="submit" class="btn btn-danger mt-5" id="valor1" name="Led" value="1">Apagar</button>
+				 <button type="submit" class="btn btn-success mt-5" id="valor2" name="Led" value="3">Encender</button>
+				 <button type="submit" class="btn btn-info mt-5" id="valor3" name="Led" value="4">0</button>
+				 <button type="submit" class="btn btn-info mt-5" id="valor4" name="Led" value="5">90</button>
+				 <button type="submit" class="btn btn-info mt-5" id="valor5" name="Led" value="6">180</button>
+				</form>
+		</div>
+		<div class="cardbox-comments">
+		 <span class="comment-avatar float-left"></span>		
+		 </div>
+		</div>			  			   
+	   </div>
+	</div>
+	</div>
+   </section>
 {% endblock %}

@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 def Servicio_Control(request):
     serial_error = False
     if request.method == 'POST':
-        datos_to_encode = request.POST.get('datos')
+        datos_to_encode = request.POST.get('Led')
         try:
             serial_connection = serial.Serial('/dev/ttyUSB0', 9600)
             time.sleep(2)
