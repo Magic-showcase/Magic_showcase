@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from Usuario.models import Users
 class Producto(models.Model):
     Nombre=models.CharField(max_length=50)
     Seccion=models.CharField(max_length=50)
@@ -17,7 +17,7 @@ class Producto(models.Model):
         return self.Nombre
 
 class Venta_descrip(models.Model):
-    Cliente=models.ForeignKey(User,on_delete=models.DO_NOTHING,default=None)
+    Cliente=models.ForeignKey(Users,on_delete=models.DO_NOTHING,default=None)
     Producto=models.ForeignKey(Producto,on_delete=models.DO_NOTHING,default=None)
     Cantidad=models.IntegerField()
     Precio_unitario=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
@@ -28,7 +28,7 @@ class Venta_descrip(models.Model):
 
 class Venta(models.Model):
     Venta_desc=models.ForeignKey(Venta_descrip,on_delete=models.DO_NOTHING)
-    Cliente=models.ForeignKey(User,on_delete=models.DO_NOTHING,default=None)
+    Cliente=models.ForeignKey(Users,on_delete=models.DO_NOTHING,default=None)
     subtotal=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     Precio_IVA=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     Costo_total=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
@@ -37,7 +37,7 @@ class Venta(models.Model):
        verbose_name_plural='Ventas'
 
 class Envio(models.Model):
-    Cliente=models.ForeignKey(User,on_delete=models.DO_NOTHING,default=None)
+    Cliente=models.ForeignKey(Users,on_delete=models.DO_NOTHING,default=None)
     Venta=models.ForeignKey(Venta,on_delete=models.DO_NOTHING,default=None)
     Address=models.TextField()
     Fecha=models.DateField()

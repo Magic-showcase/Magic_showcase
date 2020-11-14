@@ -10,7 +10,7 @@ def Blog(request):
 
     return render(request,'Centro/Blog.html',{"post":post})
 
-@login_required
+@login_required(login_url='/Login/')
 def CreateBog(request):
     if request.method=="POST":
         Ti=request.POST["Titulo"]

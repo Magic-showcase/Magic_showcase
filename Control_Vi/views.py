@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-@login_required
+@login_required(login_url='/Login/')
 def Servicio_Control(request):
     serial_error = False
     if request.method == 'POST':
