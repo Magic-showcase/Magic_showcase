@@ -1,7 +1,7 @@
 {% extends "Padre/Dad.html"  %}
 <!--Cargar carpeta static-->
 {% load static %}
-{% block title %} Nuevo Blog {% endblock %}
+{% block title %} Nuevo Blog @ {{request.user.username}}  {% endblock %}
 {% block content %}
     <form style="width: 75%; margin: auto; text-align: center;color: cornsilk;" action="/Crear_Blog/" method="POST">
         {% csrf_token %}

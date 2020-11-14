@@ -1,7 +1,7 @@
 {% extends "Padre/Dad.html"  %}
 <!--Cargar carpeta static-->
 {% load static %}
-{% block title %} Preguntas {% endblock %}
+{% block title %} Preguntas @ {{request.user.username}}  {% endblock %}
 {% block content %}
 <section class="page-section clearfix">
 	<div class="container">

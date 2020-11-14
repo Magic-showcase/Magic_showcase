@@ -1,7 +1,7 @@
 {% extends "Padre/Dad.html"  %}
 <!--Cargar carpeta static-->
 {% load static %}
-{% block title %} Blog {% endblock %}
+{% block title %} Blog @ {{request.user.username}}  {% endblock %}
 {% block content %}
 <br>
 <section>
@@ -14,7 +14,7 @@
 				{%for POST in post %} 
 					{% for Categoria in POST.Categorias.all %}
 						{% if Categoria %}
-						   <a class="dropdown-item" href="#">{{Categoria.Nombre}}</a>
+						   <a class="dropdown-item" href="/Register/">{{Categoria.Nombre}}</a>
 						{% endif %}
 		   			{% endfor %}
 				{% endfor %}

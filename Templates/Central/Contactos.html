@@ -1,7 +1,7 @@
 {% extends "Padre/Dad.html"  %}
 <!--Cargar carpeta static-->
 {% load static %}
-{% block title %} Contactos {% endblock %}
+{% block title %} Contactos @ {{request.user.username}}  {% endblock %}
 {% block content %}
 
 {#Utilizacion de variables para mostrar datos a traves de urls#}

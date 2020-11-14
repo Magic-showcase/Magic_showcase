@@ -2,7 +2,7 @@
 {% extends "Padre/Dad.html"  %}
 <!--Cargar carpeta static-->
 {% load static %}
-{% block title %} Showcase {% endblock %}
+{% block title %} Showcase @ {{request.user.username}}  {% endblock %}
 {% block content %}
  <section class="hero mt-5">
 	<div class="container">
