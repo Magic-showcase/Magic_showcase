@@ -28,7 +28,7 @@
 			<form action="/Servicio_Control/" method="POST" style="color: antiquewhite; text-align: center;">
 				{% csrf_token %}
 				 {% if serial_error %}
-					 <div class="alert alert-danger alert-dismissible fade show">
+					 <div class="alert alert-danger alert-dismissible fade show mt-5">
 					 <button type="button" class="close" data-dismiss="alert">&times;</button>
 					 <strong>Upss! Al parecer no se estableció la conexión</strong> ¿Conectaste tu vitrina?
 					</div>
@@ -48,4 +48,6 @@
 	</div>
 	</div>
    </section>
+
+  
 {% endblock %}
