@@ -2,45 +2,48 @@
 {% load static %}
 {% block title %} @{{ request.user.username }} {% endblock %}   
 {% block content %}
-  <!--
-<div class="container">
-    <div id="login-row" class="row justify-content-center align-items-center">
-        <div id="login-column" class="col-md-6">
-            <div id="login-box" class="col-md-12">
-                <form id="login-form" class="form" action="/Perfil/" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% if error %}
-                    <div class="alert alert-danger alert-dismissible fade show">
-                       <button type="button" class="close" data-dismiss="alert">&times;</button>
-                       <strong>Lo siento!</strong> {{error}}
-                     </div>
-                   {%  endif  %}
-                    <h3 class="text-center text-info">Modificar</h3>
-                    <div class="media">
-                      {% if Users.Photo %}
-                          <img class="img-fluid rounded-circle" src="{{Users.Photo.url}}" alt="User">
-                      {% endif  %}
-                      <div class="media-body">
-                          <h5 class="ml-4">{{user.username}} | {{user.get_full_name}} </h5> 
-                          <p class="ml-4"><input type="file" name="Photo" required=true></p>
-                      </div>
-                   </div>
-                 
-                   <div class="form-group">
-                        <label for="username" class="text-info">Pais:</label><br>
-                        <input type="text" class="from-control" name="country" value="{{Users.country}}">
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-6 p-4" id="profile-box">
+            <form action="{% url 'Perfil' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="media">
+                    {% if perfil.Photo %}
+                        <img src="{{ perfil.Photo.url }}" class="rounded-circle" height="50" />
+                    {% else%}
+                        <img src="{% static 'img/default-profile.png' %}" class="rounded-circle" height="50" />
+                    {% endif %}
+
+                    <div class="media-body">
+                        <h5 class="ml-4">@{{ user.username }} | {{ user.get_full_name }}</h5>
+                        <p class="ml-4"><input type="file" name="Photo" ></p>
                     </div>
-                   <div class="form-group">
-                        <label for="username" class="text-info">Biografia:</label><br>
-                        <textarea class="from-control" name="bio">{{Users.bio}}</textarea>
-                   
+                </div>
+                {% for error in form.Photo.errors %}
+                    <div class = "alert alert-danger">
+                        <b>Picture: </b> {{error}}
                     </div>
-                    <button class="btn btn-primary btn-blck" type="submit">crear</button>
-                </form>
-            </div>
-        </div>
+                {% endfor %}
+                <br><br>
+                <div class="form-group">
+                    <label>Biography</label>
+                    <textarea
+                        class="form-control {% if form.bio.errors %}is-invalid{% endif %}"
+                        name="bio"
+                    >{% if form.bio.errors %}{{ form.bio.value }}{% else %}{{ profile.bio }}{% endif %}</textarea>
+                    <div class="invalid-feedback">
+                        {% for error in form.bio.errors %}
+                            {{error}}
+                        {% endfor %}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-5">Update info</button>
+                <div class="d-flex flex-column">
+                    <a class="m-auto mt-2" href={% url 'Login' %}>Want to change password click here. </a>
+                </div>
+            </form>
         </div>
     </div>
 </div>
- -->
 {% endblock %}

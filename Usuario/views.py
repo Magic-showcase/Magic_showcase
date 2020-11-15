@@ -61,14 +61,14 @@ def modi(request):
         form = Perilmodi(request.POST,request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            Users.Photo = data['Photo']
+            perfil.Photo = data['Photo']
             #Users.country = data['country']
-            #Users.bio = data['bio']
-            Users.save()
+            perfil.bio = data['bio']
+            perfil.save()
             messages.success(request,'perfil actualizado!')
             return redirect('Blog')
         
     else:
         form = Perilmodi()
 
-    return render(request=request,template_name='Centro/Perfil.html',context={'Users':Users,'user':request.user,'form':form})
+    return render(request=request,template_name='Centro/Perfil.html',context={'perfil':perfil,'user':request.user,'form':form})
