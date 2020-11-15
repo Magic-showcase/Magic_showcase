@@ -14,7 +14,7 @@ class veriperfil:
             if not request.user.is_staff:
                 profile = request.user.users
                 if not profile.Photo or not profile.bio:
-                    if request.path not in [reverse('Perfil'), reverse('logout')]:
+                    if request.path not in [reverse('Perfil'), reverse('Logout')]:
                         return redirect('Perfil')
 
         response = self.get_response(request)

@@ -2,17 +2,14 @@
 {% load static %}
 {% block title %} @{{ request.user.username }} {% endblock %}   
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 " style="color: antiquewhite;">
     <div class="row justify-content-md-center">
         <div class="col-6 p-4" id="profile-box">
             <form action="{% url 'Perfil' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-
                 <div class="media">
                     {% if perfil.Photo %}
-                        <img src="{{ perfil.Photo.url }}" class="rounded-circle" height="50" />
-                    {% else%}
-                        <img src="{% static 'img/default-profile.png' %}" class="rounded-circle" height="50" />
+                        <img class="img-fluid" src="{{ perfil.Photo.url }}" alt="Image" style="height: 100px;  width: 100px;  background-repeat: no-repeat; background-position: 50%; border-radius: 50%; background-size: 100% auto; ">
                     {% endif %}
 
                     <div class="media-body">
@@ -26,6 +23,14 @@
                     </div>
                 {% endfor %}
                 <br><br>
+                <div class="form-group">
+                    <select name="country" id="country">
+                            <option value="México">mex</option>
+                            <option value="United States">usa</option>
+                            <option value="Canada">can</option>
+                            <option value="Brazil">bra</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label>Biography</label>
                     <textarea

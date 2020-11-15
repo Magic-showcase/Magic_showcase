@@ -25,10 +25,11 @@ def Logins(request):
     
     return render(request,'Centro/Login.html' )
 
-@login_required
+@login_required(login_url='/Login/')
 def Logouts_(request):
     logout(request)
     return redirect('Home')
+
 
 def Regi(request):
     if request.method == 'POST':
@@ -47,14 +48,14 @@ def Regi(request):
         usernu.last_name = request.POST['Apellido']
         usernu.email = request.POST['Email']
         usernu.save()
-
+        Usersnu = Users(user=usernu)
+        Usersnu.save()
         return redirect('Login')
 
     return render(request,'Centro/Singup.html')
 
-@login_required
+@login_required(login_url='/Login/')
 def modi(request):
-
     perfil = request.user.users
 
     if request.method == 'POST':
@@ -62,7 +63,7 @@ def modi(request):
         if form.is_valid():
             data = form.cleaned_data
             perfil.Photo = data['Photo']
-            #Users.country = data['country']
+            perfil.country = data['country']
             perfil.bio = data['bio']
             perfil.save()
             messages.success(request,'perfil actualizado!')
