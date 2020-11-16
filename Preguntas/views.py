@@ -8,18 +8,20 @@ def Preguntas(request):
     Error=False
     Confirma=False
     if request.method=="POST":
-        sujeto=request.POST["asunto"]
+        try:
+            sujeto=request.POST["asunto"]
         
-        mensaje=request.POST["mensaje"]+" "+ request.POST["email"]
+            mensaje=request.POST["mensaje"]+" "+ request.POST["email"]
         
-        email_from = settings.EMAIL_HOST_USER
+            email_from = settings.EMAIL_HOST_USER
         
-        recipient_list = ["Magic.showcase.questions@gmail.com"]
+            recipient_list = ["Magic.showcase.questions@gmail.com"]
         
-        send_mail(sujeto,mensaje,email_from,recipient_list)
-        Confirma=True
-        Error=False
-    else:
-        Error=True
-        Confirma=False
+            send_mail(sujeto,mensaje,email_from,recipient_list)
+            Confirma=True
+            Error=False
+        except:
+            Error=True
+            Confirma=False
+    
     return render(request,'Centro/Preguntas.html',{'Error':Error,'Confirma':Confirma})
