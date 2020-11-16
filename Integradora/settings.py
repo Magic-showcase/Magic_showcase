@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'Blog',
     'Usuario',
     'Preguntas',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +155,11 @@ EMAIL_PORT=587
 #Cuenta 
 EMAIL_HOST_USER="Magic.showcase.questions@gmail.com"
 EMAIL_HOST_PASSWORD="luciernaga44"
+
+#configuracion cloudinary
+
+cloudinary.config( 
+  cloud_name = "dlwkmbywp", 
+  api_key = "633139964856883", 
+  api_secret = "VENOMPMHeETWXUVhYQe9MB2ap94" 
+)

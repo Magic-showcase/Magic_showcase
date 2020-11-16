@@ -1,12 +1,14 @@
 from django.db import models
 from Usuario.models import Users
+from cloudinary.models import CloudinaryField
 class Producto(models.Model):
     Nombre=models.CharField(max_length=50)
     Seccion=models.CharField(max_length=50)
     Contenido=models.CharField(max_length=50)
     Precio=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True,)
     #guardar sitio adecuado de imagen upload_to
-    Imagen=models.ImageField(upload_to='Tienda')
+    #Imagen=models.ImageField(upload_to='Tienda')
+    Imagen =  CloudinaryField('image')
     Created=models.DateTimeField(auto_now_add=True)
     Update=models.DateTimeField(auto_now_add=True)
     class Meta:
