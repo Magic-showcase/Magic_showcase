@@ -1,0 +1,47 @@
+{% extends "Padre/Dad.html"  %}
+<!--Cargar carpeta static-->
+{% load static %}
+{% block title %} Preguntas @ {{request.user.username}}  {% endblock %}
+{% block content %}
+{% if Error %}
+<div class="alert alert-danger alert-dismissible fade show mt-5">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>Upss! Al parecer no se compartio tu duda</strong> ¿llenaste todos los campos?
+</div>
+{% endif %}	
+{% if Confirma %}
+<div class="alert alert-success alert-dismissible fade show mt-5">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>¡Gracias por tu información! </strong> Responderemos tus dudas lo mas pronto posible 
+</div>
+{% endif %}	
+<div id="login" class="Login_body mt-4">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="" method="POST">
+						{% csrf_token %}
+
+                        <h3 class="text-center text-info">Preguntas</h3>
+                        <div class="form-group">
+                            <label for="asunto" class="text-info">Asunto:</label><br>
+                            <input type="text" name="asunto" id="asunto" class="form-control" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="text-info">Email:</label><br>
+                            <input type="email" name="email" id="email" class="form-control" required="true">
+						</div>
+						<div class="form-group">
+                            <label for="mensaje" class="text-info">Mensaje:</label><br>
+							<textarea name="mensaje"  id="mensaje" class="form-control" required="true"></textarea>
+                        </div>
+                        <button class="btn btn-info mt-5" type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

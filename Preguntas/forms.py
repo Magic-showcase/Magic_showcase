@@ -2,8 +2,8 @@ from django import forms
 
 class Formularios_questions(forms.Form):
 
-    asunto=forms.CharField()
+    asunto=forms.CharField(required="true")
 
-    email=forms.EmailField()
+    email=forms.EmailField(required="true")
 
-    mensaje= forms.CharField()
+    mensaje= forms.CharField(required="true")

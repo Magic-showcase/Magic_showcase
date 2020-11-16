@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Tienda',
     'Blog',
     'Usuario',
+    'Preguntas',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
             BASE_DIR / 'Blog/Templates',
             BASE_DIR / 'Usuario/Templates',
             BASE_DIR / 'Control_Vi/Templates',
+            BASE_DIR / 'Preguntas/Templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

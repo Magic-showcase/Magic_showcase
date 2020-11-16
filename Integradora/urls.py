@@ -24,4 +24,5 @@ urlpatterns = [
     path('',include('Tienda.urls')),
     path('',include('Blog.urls')),
     path('',include('Usuario.urls')),
+    path('',include('Preguntas.urls')),
 ]

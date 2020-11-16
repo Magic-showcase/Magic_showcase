@@ -18,7 +18,8 @@
                     </div>
                 </div>
                 {% for error in form.Photo.errors %}
-                    <div class = "alert alert-danger">
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <b>Picture: </b> {{error}}
                     </div>
                 {% endfor %}
@@ -39,13 +40,18 @@
                     >{% if form.bio.errors %}{{ form.bio.value }}{% else %}{{ profile.bio }}{% endif %}</textarea>
                     <div class="invalid-feedback">
                         {% for error in form.bio.errors %}
-                            {{error}}
+                    
+                         <div class="alert alert-danger alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <b> Bio: </b> {{error}}
+                         </div>
+                    
                         {% endfor %}
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mt-5">Update info</button>
                 <div class="d-flex flex-column">
-                    <a class="m-auto mt-2" href={% url 'Login' %}>Want to change password click here. </a>
+                    <a class="m-auto mt-2" href="/Login/">Want to change password click here. </a>
                 </div>
             </form>
         </div>

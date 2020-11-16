@@ -10,8 +10,6 @@ def Home(request):
 def Tutoriales(request):
     return render(request,'Central/Tutoriales.html')
 
-def Preguntas(request):
-    return render(request,'Central/Preguntas.html')
 
 def Contactos(request):
     return render(request,'Central/Contactos.html')
