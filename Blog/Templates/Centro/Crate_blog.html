@@ -3,21 +3,38 @@
 {% load static %}
 {% block title %} Nuevo Blog @ {{request.user.username}}  {% endblock %}
 {% block content %}
-    <form style="width: 75%; margin: auto; text-align: center;color: cornsilk;" action="/Crear_Blog/" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <h3> Nuevo Blog</h3>
-        <p>Titulo: <input type="text" name="Titulo"> </p>
-        <label >Imagen</label>
-        <input type="file" name="Imagen" id="Imagen"> 
-        <p>Contenido: <textarea name="Contenido" rows="15" cols="45"> </textarea> </p>
-       
-            <select name="categ" id="categ">
-                <option value="">Categoria</option> 
-            {%for Categoria in categotias %} 
-                <option value="{{Categoria.id}}">{{Categoria.Nombre}}</option>   
-            {% endfor %}
-            </select>
-        <button class="btn btn-primary btn-blck" type="submit">crear</button>
-
-    </form>
+    <div id="login" class="Login_body mt-5">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="/Crear_Blog/" method="POST" style="color: mistyrose;"  enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <h3 class="text-center text-info">Nuevo Blog</h3>
+                        <div class="form-group">
+                            <label for="Titulo" class="text-info">Titulo:</label><br>
+                            <input type="text" name="Titulo" id="Titulo" class="form-control" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="Imagen" class="text-info">Imagen</label><br>
+                            <input type="file" name="Imagen" id="Imagen" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Contenido:</label><br>
+                            <textarea name="Contenido" id="Contenido" rows="15" cols="45" class="form-control" required="true"> </textarea>
+                        </div>
+                        <select name="categ" id="categ">
+                        {%for Categoria in categotias %} 
+                            <option value="{{Categoria.id}}">{{Categoria.Nombre}}</option>   
+                        {% endfor %}
+                        </select>
+                        <br>
+                        <button class="btn btn-primary btn-blck mt-5" type="submit">crear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
 {% endblock %}
