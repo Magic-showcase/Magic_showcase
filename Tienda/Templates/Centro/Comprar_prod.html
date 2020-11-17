@@ -1,0 +1,16 @@
+{% extends "Padre/Dad.html"  %}
+<!--Cargar carpeta static-->
+{% load static %}
+
+{% block title %} Comprar @ {{request.user.username}}  {% endblock %}
+{% block content %}
+<div id="paypal-button-container" ></div>
+<script
+    src="https://www.paypal.com/sdk/js?client-id=Ac5WPsCMuD4X3uu--d5hJ8c13mLF9b-JshG2sapdD4gqhUyMvZ_9_OXZ3XbIbnsDVCZr6FZ89LUi08Dn"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+</script>
+<P>Reneenenen</P>
+<script src="{% static '/Boot/js/paypal.js' %}"></script>
+  
+
+
+{% endblock %}

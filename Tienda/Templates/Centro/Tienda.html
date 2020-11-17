@@ -11,7 +11,7 @@
             <div class="row">
 				{%for Producto in articulo %}
 
-                <div class="col-md-4 mt-5">
+                <div class="col-md-4 mt-5" >
                     <div class="card">
                         <img class="card-img-top" src="{{Producto.Imagen.url}}" alt="Card image cap">
                         <div class="card-body">
@@ -22,7 +22,7 @@
 							</h5>
                         </div>
                         <div class="card-footer">
-                            <div class="badge badge-danger float-right">Comparar</div>
+                            <div class="badge badge-danger float-right"  > <a href="/Comprar/"> Comprar </a> </div>
                             <div class="float-left">
                                 <a  class="text-danger">${{Producto.Precio}}</a>
                                 <br>
