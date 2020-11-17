@@ -5,10 +5,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 # Create your views here.
 def Blog(request):
-     
+    categotias = Categoria.objects.all()
     post = POST.objects.all()
 
-    return render(request,'Centro/Blog.html',{"post":post})
+    return render(request,'Centro/Blog.html',{"post":post,"categotias":categotias})
 
 def Blogfilt(request):
     post = POST.objects.all()
@@ -19,16 +19,23 @@ def Blogfilt(request):
 
 @login_required(login_url='/Login/')
 def CreateBog(request):
+    categotias = Categoria.objects.all()
+    perfil = request.user.users
+    Error=False
+    Confirma=False
     if request.method=="POST":
-        Ti=request.POST["Titulo"]
-        Con=request.POST["Contenido"]
-        #Cat = Categoria.objects.get(id=1)
-        #Cate = get_object_or_404(Categoria, id=4)
-        Cate = Categoria.objects.filter(id='1')
-        Autor= Users.objects.get(user_id=1)
-        POST5 = POST.objects.create(Titulo="Prueba",Contenido="adsdasdasdasd",Autor=Autor,Categorias=Cate)
-        POST5.save()
-        #return render(request,"Centro/gracias.html")
+        try:
+            Ti=request.POST["Titulo"]
+            Con=request.POST["Contenido"]
+            Imagen = request.FILES.get('txtImagen')
+            Cate = request.POST["categ"]
+            POST5 = POST.objects.create(Titulo=Ti,Contenido=Con,Imagen=Imagen,Autor=perfil,Categorias=Cate)
+            POST5.save()
+            Confirma=True
+            Error=False
+        except:
+            Error=True
+            Confirma=False
 
 
-    return render(request,"Centro/Crate_blog.html")
+    return render(request,"Centro/Crate_blog.html",{'Error':Error,'Confirma':Confirma,'categotias':categotias})

@@ -15,7 +15,7 @@ class Producto(models.Model):
         verbose_name='Producto'
         verbose_name_plural='Productos'
     
-    def _str_(self):
+    def __str__(self):
         return self.Nombre
 
 class Venta_descrip(models.Model):

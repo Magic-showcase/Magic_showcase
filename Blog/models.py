@@ -13,7 +13,7 @@ class Categoria(models.Model):
         verbose_name='Categoria'
         verbose_name_plural='Categorias'
     
-    def _str_(self):
+    def __str__(self):
         return str(self.Nombre)
 
 
@@ -26,12 +26,12 @@ class POST(models.Model):
     #si un autor se va se borra el post
     Autor=models.ForeignKey(Users,on_delete=models.CASCADE)
     #relacion entre post y categoria
-    Categorias=models.ManyToManyField(Categoria)
+    Categorias=models.ForeignKey(Categoria,on_delete=models.CASCADE)
     Created=models.DateTimeField(auto_now_add=True)
     Update=models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name='POST'
         verbose_name_plural='POSTS'
     
-    def _str_(self):
+    def __str__(self):
         return str(self.Titulo)

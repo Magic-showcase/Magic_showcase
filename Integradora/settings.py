@@ -23,12 +23,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd%vb-opu3++$#%po9y5-%55j5kyc=l)-t8)d-oq54vra2h(o(z'
+SECRET_KEY = 'admin132'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+if DEBUG:
+    EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+
+else:
+    EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+    #Espesificar el host
+    EMAIL_HOST="smtp.gmail.com"
+    #Protocolo de seguridad
+    EMAIL_USE_TLS=True
+    #Puerto
+    EMAIL_PORT=587
+    #Cuenta 
+    #EMAIL_HOST_USER="Magic.showcase.questions@gmail.com"
+    EMAIL_HOST_PASSWORD="bajfgpcgwwzeqend"
+    DEFAUL_FROM_EMAIL = 'Magic restore'
+
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,6 +69,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -91,13 +110,25 @@ WSGI_APPLICATION = 'Integradora.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+
+else:
+    import dj_database_url
+    from decouple import config
+
+    DATABASES = {
+        'default':{
+            dj_database_url.config(
+                default=config('DATABASE_URL')
+            )
+        }
+    }
 
 
 # Password validation
@@ -142,19 +173,28 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 #Donde buscar los archivos multimedia
 MEDIA_ROOT=BASE_DIR / 'media'
-
+#Constante
+#STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 #SERVIDOR EMAIL
-
 EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 #Espesificar el host
 EMAIL_HOST="smtp.gmail.com"
 #Protocolo de seguridad
+
 EMAIL_USE_TLS=True
+
 #Puerto
+
 EMAIL_PORT=587
+
 #Cuenta 
+
 EMAIL_HOST_USER="Magic.showcase.questions@gmail.com"
-EMAIL_HOST_PASSWORD="luciernaga44"
+
+EMAIL_HOST_PASSWORD="bajfgpcgwwzeqend"
+
+
+
 
 #configuracion cloudinary
 
@@ -163,3 +203,4 @@ cloudinary.config(
   api_key = "633139964856883", 
   api_secret = "VENOMPMHeETWXUVhYQe9MB2ap94" 
 )
+

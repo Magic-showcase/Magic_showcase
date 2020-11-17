@@ -3,14 +3,21 @@
 {% load static %}
 {% block title %} Nuevo Blog @ {{request.user.username}}  {% endblock %}
 {% block content %}
-    <form style="width: 75%; margin: auto; text-align: center;color: cornsilk;" action="/Crear_Blog/" method="POST">
+    <form style="width: 75%; margin: auto; text-align: center;color: cornsilk;" action="/Crear_Blog/" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         @ {{request.user.email}}
         <h3> Nuevo Blog</h3>
         <p>Titulo: <input type="text" name="Titulo"> </p>
+        <label >Imagen</label>
+        <input type="file" name="txtImagen" id="txtImagen"> 
         <p>Contenido: <textarea name="Contenido" rows="15" cols="45"> </textarea> </p>
-        <p>Categorias: <input type="text" name="Categorias"> </p>
-        <input type="submit" value="Crear">
+       
+            <select name="categ" id="categ">
+            {%for Categoria in categotias %} 
+                <option value="{{Categoria}}">{{Categoria.Nombre}}</option>   
+            {% endfor %}
+            </select>
+        <button class="btn btn-primary btn-blck" type="submit">crear</button>
 
     </form>
 {% endblock %}
