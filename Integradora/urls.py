@@ -26,3 +26,8 @@ urlpatterns = [
     path('',include('Usuario.urls')),
     path('',include('Preguntas.urls')),
 ]
+
+#person_admin 
+admin.site.site_header = "Administración Magic Showcase"
+admin.site.index_title = "Magic Showcase"
+admin.site.site_title = "Administración Magic Showcase"

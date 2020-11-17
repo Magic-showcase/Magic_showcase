@@ -5,16 +5,16 @@
 {% block content %}
     <form style="width: 75%; margin: auto; text-align: center;color: cornsilk;" action="/Crear_Blog/" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        @ {{request.user.email}}
         <h3> Nuevo Blog</h3>
         <p>Titulo: <input type="text" name="Titulo"> </p>
         <label >Imagen</label>
-        <input type="file" name="txtImagen" id="txtImagen"> 
+        <input type="file" name="Imagen" id="Imagen"> 
         <p>Contenido: <textarea name="Contenido" rows="15" cols="45"> </textarea> </p>
        
             <select name="categ" id="categ">
+                <option value="">Categoria</option> 
             {%for Categoria in categotias %} 
-                <option value="{{Categoria}}">{{Categoria.Nombre}}</option>   
+                <option value="{{Categoria.id}}">{{Categoria.Nombre}}</option>   
             {% endfor %}
             </select>
         <button class="btn btn-primary btn-blck" type="submit">crear</button>

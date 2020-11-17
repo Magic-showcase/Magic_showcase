@@ -23,14 +23,17 @@ def CreateBog(request):
     perfil = request.user.users
     Error=False
     Confirma=False
-    if request.method=="POST":
+    if request.POST:
+        posts = POST()
+        posts.Autor = perfil
+        posts.Titulo = request.POST.get('Titulo')
+        posts.Imagen = request.FILES.get('Imagen')
+        posts.Contenido = request.POST.get('Contenido')
+        categoriasf = Categoria()
+        categoriasf.id = request.POST.get('categ')
+        posts.Categorias = categoriasf
         try:
-            Ti=request.POST["Titulo"]
-            Con=request.POST["Contenido"]
-            Imagen = request.FILES.get('txtImagen')
-            Cate = request.POST["categ"]
-            POST5 = POST.objects.create(Titulo=Ti,Contenido=Con,Imagen=Imagen,Autor=perfil,Categorias=Cate)
-            POST5.save()
+            posts.save()
             Confirma=True
             Error=False
         except:
