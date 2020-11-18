@@ -9,7 +9,7 @@ from Usuario.models import Users
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
 from paypalcheckoutsdk.orders import OrdersGetRequest, OrdersCaptureRequest
 
-import sys
+import sys, json
 
 
 def Tienda(request):
@@ -25,8 +25,41 @@ def Compra(request):
 
 @login_required(login_url='/Login/')
 def pago(request):
+    perfil = request.user.users
+    vitrina = Producto.objects.get(pk=1)
+    datos = json.loads(request.body)
+    order_id = datos['orderID']
+    #metodo de la classe getorder
+    detalles = GetOrder().get_order(order_id)
+    detalle_precio = float(detalles.result.purchase_units[0].amount.value)
+    print(detalle_precio)
+    #validacion 
+    if detalle_precio == vitrina.Precio:
+        #clase capturar orden 
+        transac = CaptureOrder().capture_order(order_id, debug=True)
+        #si el valor de la venta no es igual al valor del producto no se realizara 
+        #la transaccion ni el guradar en la base de datos
+        ventanu = Venta_descrip()
+        ventanu.Cliente =  perfil
+        ventanu.Producto = Producto.objects.get(pk=1)
+        ventanu.Cantidad = 1
+        ventanu.Precio_unitario = transac.result.purchase_units[0].payments.captures[0].amount.value
+        ventanu.save()
 
-    pass
+        data = {
+            "id": f"{transac.result.id}",
+            "cliente": f" { perfil } ",
+            "message":"perfecto XD"
+        }
+
+        return JsonResponse(data)
+    
+    else:
+        data = {
+            "message": "No se pudo realizar la venta T_T"
+        }
+        return JsonResponse(data)
+    
 
 #paypal
 class PayPalClient:
@@ -82,6 +115,7 @@ class GetOrder(PayPalClient):
     request = OrdersGetRequest(order_id)
     #3. Call PayPal to get the transaction
     response = self.client.execute(request)
+    return response
     #4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
   #  print 'Status Code: ', response.status_code
   #  print 'Status: ', response.result.status
@@ -93,10 +127,10 @@ class GetOrder(PayPalClient):
   #  print 'Gross Amount: {} {}'.format(response.result.purchase_units[0].amount.currency_code,
   #                     response.result.purchase_units[0].amount.value)
 
-"""This driver function invokes the get_order function with
-   order ID to retrieve sample order details. """
-if __name__ == '__main__':
-  GetOrder().get_order('REPLACE-WITH-VALID-ORDER-ID')
+#""This driver function invokes the get_order function with
+#   order ID to retrieve sample order details. """
+#if __name__ == '__main__':
+#  GetOrder().get_order('REPLACE-WITH-VALID-ORDER-ID')
 
 
 #capturar datos de la transa.. #
@@ -130,8 +164,8 @@ class CaptureOrder(PayPalClient):
     return response
 
 
-"""This driver function invokes the capture order function.
-Replace Order ID value with the approved order ID. """
-if __name__ == "__main__":
-  order_id = 'REPLACE-WITH-APPORVED-ORDER-ID'
-  CaptureOrder().capture_order(order_id, debug=True)
+#"""This driver function invokes the capture order function.
+#Replace Order ID value with the approved order ID. """
+#if __name__ == "__main__":
+#  order_id = 'REPLACE-WITH-APPORVED-ORDER-ID'
+#  CaptureOrder().capture_order(order_id, debug=True)

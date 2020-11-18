@@ -5,14 +5,14 @@
       return actions.order.create({
         purchase_units: [{
           amount: {
-            value: '300'
+            value: '1300'
           }
         }]
       });
     },
     onApprove: function(data) {
       return fetch('/pago/', {
-        method: 'POSOT',
+        method: 'POST',
         headers: {
           'content-type': 'application/json',
           'X-CSRFToken': csrftoken,
@@ -24,7 +24,7 @@
       }).then(function(res) {
         return res.json();
       }).then(function(details) {
-        alert('Transaction approved by ' + details.payer_given_name);
+        alert(details.message);
     
     })
   }
