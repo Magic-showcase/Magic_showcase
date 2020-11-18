@@ -10,12 +10,24 @@
         }]
       });
     },
-    onApprove: function(data, actions) {
-      // This function captures the funds from the transaction.
-      return actions.order.capture().then(function(details) {
-        // This function shows a transaction success message to your buyer.
-        alert('Transaction completed by ' + details.payer.name.given_name);
-      });
-    }
+    onApprove: function(data) {
+      return fetch('/pago/', {
+        method: 'POSOT',
+        headers: {
+          'content-type': 'application/json',
+          'X-CSRFToken': csrftoken,
+
+        },
+        body: JSON.stringify({
+          orderID: data.orderID
+        })
+      }).then(function(res) {
+        return res.json();
+      }).then(function(details) {
+        alert('Transaction approved by ' + details.payer_given_name);
+    
+    })
+  }
+
   }).render('#paypal-button-container');
   //This function displays Smart Payment Buttons on your web page.
