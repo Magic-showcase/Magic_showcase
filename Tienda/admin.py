@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Producto
 from .models import Envio
-from .models import Venta_descrip
 # Register your models here.
 from .models import Venta
 class Productoadmin(admin.ModelAdmin):
@@ -16,20 +15,15 @@ class Envioadmin(admin.ModelAdmin):
     #detectar meses y años 
     date_hierarchy='Fecha'
 
-class Venta_descrip_admin(admin.ModelAdmin):
-    model=Venta_descrip
-    list_display=['Cliente','Cantidad','Producto','Precio_unitario']
-    list_filter=('Cliente','Producto')
 
 class Venta_admin(admin.ModelAdmin):
     model=Venta
-    list_display=['Venta_desc','Cliente','Costo_total']
+    list_display=['Cliente','Costo_total']
     list_filter=('Cliente','Costo_total')
 
 admin.site.register(Producto,Productoadmin)
 #Registro de table Envio
 admin.site.register(Envio,Envioadmin)
-#Registo de tabla Venta_descrp
-admin.site.register(Venta_descrip,Venta_descrip_admin)
+
 #Registro venta
 admin.site.register(Venta,Venta_admin)

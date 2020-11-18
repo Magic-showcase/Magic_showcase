@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 #importar Tienda,Productor
-from Tienda.models import Producto, Venta_descrip ,Venta , Envio
+from Tienda.models import Producto, Venta , Envio
 from Usuario.models import Users
 #paypal
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
@@ -36,29 +36,34 @@ def pago(request):
     #validacion 
     if detalle_precio == vitrina.Precio:
         #clase capturar orden 
+        canti = 3
         transac = CaptureOrder().capture_order(order_id, debug=True)
         #si el valor de la venta no es igual al valor del producto no se realizara 
         #la transaccion ni el guradar en la base de datos
-        ventanu = Venta_descrip()
+        ventanu = Venta()
         ventanu.Cliente =  perfil
         ventanu.Producto = Producto.objects.get(pk=1)
-        ventanu.Cantidad = 1
-        ventanu.Precio_unitario = transac.result.purchase_units[0].payments.captures[0].amount.value
+        ventanu.Cantidad = canti
+        ventanu.Precio_unitario = vitrina.Precio
+        ventanu.subtotal = (1300 * canti)
+        ventanu.Precio_IVA = ((1300 * canti ) * 0.16)
+        ventanu.Costo_total = transac.result.purchase_units[0].payments.captures[0].amount.value
         ventanu.save()
 
-        data = {
+
+        datos = {
             "id": f"{transac.result.id}",
             "cliente": f" { perfil } ",
             "message":"perfecto XD"
         }
 
-        return JsonResponse(data)
+        return JsonResponse(datos)
     
     else:
-        data = {
+        datos = {
             "message": "No se pudo realizar la venta T_T"
         }
-        return JsonResponse(data)
+        return JsonResponse(datos)
     
 
 #paypal
