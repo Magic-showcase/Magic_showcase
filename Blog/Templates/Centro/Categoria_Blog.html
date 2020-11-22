@@ -11,13 +11,10 @@
 				Categorias
 			</button>
 			<div class="dropdown-menu">
-				{%for POST in post %} 
-					{% for Categoria in POST.Categorias.all %}
-						{% if Categoria %}
-						   <a class="dropdown-item" href="/Register/">{{Categoria.Nombre}}</a>
-						{% endif %}
-		   			{% endfor %}
+				{%for Categoria in cate %} 
+						   <a class="dropdown-item" href="{% url 'Categoria' Categoria.id %}">{{Categoria.Nombre}}</a>
 				{% endfor %}
+				<a class="dropdown-item" href="/Blog/">Todos</a>
 			</div>	
 			 <button type="button" class="btn btn-primary" onclick="location.href='/Crear_Blog/'">Nuevo Blog</button>
 		</div>

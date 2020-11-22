@@ -10,6 +10,8 @@
                 <div class="media">
                     {% if perfil.Photo %}
                         <img class="img-fluid" src="{{ perfil.Photo.url }}" alt="Image" style="height: 100px;  width: 100px;  background-repeat: no-repeat; background-position: 50%; border-radius: 50%; background-size: 100% auto; ">
+                    {% else %}
+                    <img class="img-fluid" src="{% static '/Img/user_default.png' %}" alt="Image" style="height: 100px;  width: 100px;  background-repeat: no-repeat; background-position: 50%; border-radius: 50%; background-size: 100% auto; ">
                     {% endif %}
 
                     <div class="media-body">

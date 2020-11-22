@@ -20,7 +20,7 @@
           <li class="nav-item {% if request.path == '/Tutoriales/' %} active {% endif %}  px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Tutoriales'  %}">Tutoriales</a>
           </li>
-          <li class="nav-item {% if request.path == '/Blog/' %} active {% endif %}  px-lg-4">
+          <li class="nav-item {% if request.path|slice:':6' == '/Blog/' %} active {% endif %}  px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Blog' %}">Blog</a>
           </li>
           <li class="nav-item {% if request.path == '/Preguntas/' %} active {% endif %}  px-lg-4">
