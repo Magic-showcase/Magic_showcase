@@ -49,5 +49,9 @@
 	</div>
    </section>
 
-  
+  {% for Item in Items %}
+	   <p>{{Item.Nombre}}</p>
+	   <img class="img-fluid rounded-circle" src="{{ Item.Imagen.url }}" alt="User">
+  {% endfor %}
+
 {% endblock %}
