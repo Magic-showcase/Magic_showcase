@@ -12,9 +12,9 @@ class CategoriaAdmin(admin.ModelAdmin):
 class POSTAdmin(admin.ModelAdmin):
     model=POST
     readonly_fields=('Created','Update')
-    list_display=['Titulo','Autor']
+    list_display=['Titulo','Autor','Categorias']
     search_fields=('Titulo','Autor')
-    list_filter=('Titulo','Autor','Categorias',)
+    list_filter=('Titulo','Autor','Categorias','Created','Update')
 
 admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(POST,POSTAdmin)

@@ -5,7 +5,7 @@ class Producto(models.Model):
     Nombre=models.CharField(max_length=50)
     Seccion=models.CharField(max_length=50)
     Contenido=models.CharField(max_length=50)
-    Precio=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True,)
+    Precio=models.DecimalField(max_digits=10, decimal_places=2, blank=True)
     #guardar sitio adecuado de imagen upload_to
     #Imagen=models.ImageField(upload_to='Tienda')
     Imagen =  CloudinaryField('image')
@@ -21,21 +21,14 @@ class Producto(models.Model):
 class Venta(models.Model):
     Cliente=models.ForeignKey(Users,on_delete=models.DO_NOTHING,default=None)
     Producto=models.ForeignKey(Producto,on_delete=models.DO_NOTHING,default=None)
-    Precio_unitario=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    Cantidad=models.IntegerField()
-    subtotal=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    Precio_IVA=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    Costo_total=models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    Costo_total=models.DecimalField(max_digits=10, decimal_places=2, blank=True)
+    Nombre_cliente = models.CharField(max_length=100)
+    Apellido_cliente = models.CharField(max_length=100)
+    Paypal_cliente = models.EmailField(max_length=100)
+    Direccion_cliente = models.CharField(max_length=100)
+    Created=models.DateTimeField(auto_now_add=True)
+    Update=models.DateTimeField(auto_now_add=True)
     class Meta:
        verbose_name='Venta'
        verbose_name_plural='Ventas'
 
-class Envio(models.Model):
-    Cliente=models.ForeignKey(Users,on_delete=models.DO_NOTHING,default=None)
-    Venta=models.ForeignKey(Venta,on_delete=models.DO_NOTHING,default=None)
-    Address=models.TextField()
-    Fecha=models.DateField()
-    Entregado=models.BooleanField()
-    class Meta:
-        verbose_name='Envio'
-        verbose_name_plural='Envios'

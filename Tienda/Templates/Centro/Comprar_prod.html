@@ -86,10 +86,10 @@ paypal.Buttons({
 	});
   },
   onApprove: function(data) {
-	return fetch('/pago/', {
+	return fetch("{% url 'pago' Productos.id %}", {
 	  method: 'POST',
 	  headers: {
-		'content-type': 'application/json',
+		'Content-type': 'application/json',
 		'X-CSRFToken': csrftoken,
 
 	  },

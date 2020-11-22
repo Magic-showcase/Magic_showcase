@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 #importar Tienda,Productor
-from Tienda.models import Producto, Venta , Envio
+from Tienda.models import Producto, Venta 
 from Usuario.models import Users
 #paypal
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
@@ -25,30 +25,29 @@ def Compra(request, pk):
     return render(request,'Centro/Comprar_prod.html',context)
 
 @login_required(login_url='/Login/')
-def pago(request):
+def pago(request, pk):
     perfil = request.user.users
-    vitrina = Producto.objects.get(pk=2)
+    perfil2 = request.user
+    prd = Producto.objects.get(id=pk)
     datos = json.loads(request.body)
     order_id = datos['orderID']
     #metodo de la classe getorder
     detalles = GetOrder().get_order(order_id)
     detalle_precio = float(detalles.result.purchase_units[0].amount.value)
-    print(detalle_precio)
     #validacion 
-    if detalle_precio == vitrina.Precio:
+    if detalle_precio == prd.Precio:
         #clase capturar orden 
-        canti = 3
         transac = CaptureOrder().capture_order(order_id, debug=True)
         #si el valor de la venta no es igual al valor del producto no se realizara 
-        #la transaccion ni el guradar en la base de datos
+        #la transaccion ni guradar en la base de datos
         ventanu = Venta()
         ventanu.Cliente =  perfil
-        ventanu.Producto = Producto.objects.get(pk=2)
-        ventanu.Cantidad = canti
-        ventanu.Precio_unitario = 1300
-        ventanu.subtotal = (1300 * canti)
-        ventanu.Precio_IVA = ((1300 * canti ) * 0.16)
+        ventanu.Producto = Producto.objects.get(id=pk)
         ventanu.Costo_total = transac.result.purchase_units[0].payments.captures[0].amount.value
+        ventanu.Nombre_cliente = perfil2.first_name
+        ventanu.Apellido_cliente = perfil2.last_name
+        ventanu.Paypal_cliente = transac.result.payer.email_address
+        ventanu.Direccion_cliente = transac.result.purchase_units[0].shipping.address.address_line_1
         ventanu.save()
 
 
