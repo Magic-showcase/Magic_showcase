@@ -8,5 +8,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('Blog/',views.Blog,name="Blog"),
     path('Crear_Blog/',views.CreateBog,name="Crear_blog"),
-    path('Categoria/<Categoria_id>/',views.Blogfilt,name="Categoria"),
+    path('Categoria/<int:Categoria_id>/',views.Blogfilt,name="Categoria"),
 ]

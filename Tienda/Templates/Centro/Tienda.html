@@ -22,7 +22,7 @@
 							</h5>
                         </div>
                         <div class="card-footer">
-                            <div class="badge badge-danger float-right"  > <a href="/Comprar/"> Comprar </a> </div>
+                            <div class="badge badge-danger float-right"  > <a href="{% url 'Comprar' Producto.id %}" style="color: beige;"> Ver </a> </div>
                             <div class="float-left">
                                 <a  class="text-danger">${{Producto.Precio}}</a>
                                 <br>

@@ -18,15 +18,16 @@ def Tienda(request):
     return render(request,'Centro/Tienda.html',{'articulo':articulo})
 
 @login_required(login_url='/Login/')
-def Compra(request):
-
-
-    return render(request,'Centro/Comprar_prod.html')
+def Compra(request, pk):
+    perfil = request.user.users
+    Productos = Producto.objects.get(id=pk)
+    context = {"Productos":Productos,"perfil":perfil}
+    return render(request,'Centro/Comprar_prod.html',context)
 
 @login_required(login_url='/Login/')
 def pago(request):
     perfil = request.user.users
-    vitrina = Producto.objects.get(pk=1)
+    vitrina = Producto.objects.get(pk=2)
     datos = json.loads(request.body)
     order_id = datos['orderID']
     #metodo de la classe getorder
@@ -42,9 +43,9 @@ def pago(request):
         #la transaccion ni el guradar en la base de datos
         ventanu = Venta()
         ventanu.Cliente =  perfil
-        ventanu.Producto = Producto.objects.get(pk=1)
+        ventanu.Producto = Producto.objects.get(pk=2)
         ventanu.Cantidad = canti
-        ventanu.Precio_unitario = vitrina.Precio
+        ventanu.Precio_unitario = 1300
         ventanu.subtotal = (1300 * canti)
         ventanu.Precio_IVA = ((1300 * canti ) * 0.16)
         ventanu.Costo_total = transac.result.purchase_units[0].payments.captures[0].amount.value
