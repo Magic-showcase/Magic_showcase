@@ -12,8 +12,9 @@
 			</button>
 			<div class="dropdown-menu">
 				{%for Categoria in categotias %} 
-						   <a class="dropdown-item" href="/Register/">{{Categoria.Nombre}}</a>
+				<a class="dropdown-item" href="{% url 'Categoria' Categoria.id %}">{{Categoria.Nombre}}</a>
 				{% endfor %}
+				<a class="dropdown-item" href="/Blog/">Todos</a>
 			</div>	
 			 <button type="button" class="btn btn-primary" onclick="location.href='/Crear_Blog/'">Nuevo Blog</button>
 		</div>

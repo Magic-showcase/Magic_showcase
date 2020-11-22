@@ -10,10 +10,12 @@ def Blog(request):
 
     return render(request,'Centro/Blog.html',{"post":post,"categotias":categotias})
 
-def Blogfilt(request):
-    post = POST.objects.all()
+def Blogfilt(request, Categoria_id):
+    categotias = Categoria.objects.get(id= Categoria_id)
+    cate = Categoria.objects.all()
+    post = POST.objects.filter(Categorias=categotias)
 
-    return render(request,'Centro/Blog.html',{"post":post})
+    return render(request,'Centro/Categoria_Blog.html',{"post":post,"categotias":categotias,"cate":cate})
 
 
 
