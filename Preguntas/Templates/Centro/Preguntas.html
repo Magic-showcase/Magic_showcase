@@ -18,7 +18,7 @@
 <div id="login" class="Login_body mt-4">
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
+            <div id="login-column" class="col-md-6" style="background-color: #D8D5F4; border-radius: 20px;">
                 <div id="login-box" class="col-md-12">
                     <form id="login-form" class="form" action="" method="POST">
 						{% csrf_token %}
@@ -36,7 +36,9 @@
                             <label for="mensaje" class="text-info">Mensaje:</label><br>
 							<textarea name="mensaje"  id="mensaje" class="form-control" required="true"></textarea>
                         </div>
+                        <div class="form-group">
                         <button class="btn btn-info mt-5" type="submit">Enviar</button>
+                        </div>
                     </form>
                 </div>
             </div>

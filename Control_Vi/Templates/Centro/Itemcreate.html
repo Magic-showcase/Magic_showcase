@@ -3,12 +3,13 @@
 {% load static %}
 {% block title %} Nuevo Item @ {{request.user.username}}  {% endblock %}
 {% block content %}
-    <div id="login" class="Login_body mt-5">
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="/Crear_Item/" method="POST" style="color: mistyrose;"  enctype="multipart/form-data">
+
+    <div id="login" class="Login_body mt-5" >
+        <div class="container" >
+            <div id="login-row" class="row justify-content-center align-items-center" >
+                <div id="login-column" class="col-md-6" style="background-color: #D8D5F4; border-radius: 20px;">
+                    <div id="login-box" class="col-md-12" >
+                        <form id="login-form" class="form" action="/Crear_Item/" method="POST" style="color: mistyrose; "  enctype="multipart/form-data">
                             {% csrf_token %}
                         <h3 class="text-center text-info">Nuevo Item</h3>
                         <div class="form-group">
@@ -19,7 +20,7 @@
                             <label for="Seccion" class="text-info">Seccion:</label><br>
                             <input type="text" name="Seccion" id="Seccion" class="form-control" required="true">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group text-muted">
                             <label for="Imagen" class="text-info">Imagen</label><br>
                             <input type="file" name="Imagen" id="Imagen" >
                         </div>
@@ -27,12 +28,13 @@
                             <label for="Contenido" class="text-info">Contenido:</label><br>
                             <input type="text" name="Contenido" id="Contenido" class="form-control" required="true"> 
                         </div>
-                        <div class="form-group"></div>
+                        <div class="form-group">
                             <label for="Precio" class="text-info">Precio:</label><br>
                             <input type="number" name="Precio" id="Precio" min="1" max="10000" step="0.1">
                         </div>
-                        <br>
+                        <div class="form-group">
                         <button class="btn btn-primary btn-blck mt-5" type="submit">crear</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -6,7 +6,7 @@
     <div id="login" class="Login_body mt-5">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
+                <div id="login-column" class="col-md-6" style="background-color: #D8D5F4; border-radius: 20px;">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="/Crear_Blog/" method="POST" style="color: mistyrose;"  enctype="multipart/form-data">
                             {% csrf_token %}
@@ -15,7 +15,7 @@
                             <label for="Titulo" class="text-info">Titulo:</label><br>
                             <input type="text" name="Titulo" id="Titulo" class="form-control" required="true">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group text-muted" >
                             <label for="Imagen" class="text-info">Imagen</label><br>
                             <input type="file" name="Imagen" id="Imagen" >
                         </div>
@@ -28,8 +28,9 @@
                             <option value="{{Categoria.id}}">{{Categoria.Nombre}}</option>   
                         {% endfor %}
                         </select>
-                        <br>
+                        <div class="form-group">
                         <button class="btn btn-primary btn-blck mt-5" type="submit">crear</button>
+                        </div>
                     </form>
                 </div>
             </div>

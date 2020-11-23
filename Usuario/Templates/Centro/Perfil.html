@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container mt-5 " style="color: antiquewhite;">
     <div class="row justify-content-md-center">
-        <div class="col-6 p-4" id="profile-box">
+        <div class="col-6 p-4" id="profile-box" style="background-color: #271338; border-radius: 20px; opacity: 0.9;">
             <form action="{% url 'Perfil' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="media">

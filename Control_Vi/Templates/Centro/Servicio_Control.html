@@ -5,41 +5,50 @@
 {% block title %} Showcase @ {{request.user.username}}  {% endblock %}
 {% block content %}
 <h1 style="color: antiquewhite;">{{posi}}</h1>
+<section>
+	<div class="btn-group"></div>
+		<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
+			 <button type="button" class="btn btn-primary" onclick="location.href='/Crear_Item/'">Nuevo Item</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='/Crear_Item/'">Nueva Vitrina</button>
+	   </div>
+	</div>	
+	<br>
+</section>
 {% for m in Show %}
 <section class="hero mt-5">
 <div class="container" class="hero mt-5">
 <div class="row">
-	<div class="col-sm-6" style="background-color: white; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
-		<h1 class="text-info">{{m.Nombrevi}}</h1>
+	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
+		<h1 class="text-primary">{{m.Nombrevi}}</h1>
 		<p>{{m.Seccion}}</p>	
 		{% ifequal posi '4' %}
 			<p>{{m.Slot1}}</p>
-			<img class="img-fluid" width="150" height="150" src="{{m.Slot1.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
 			<p>{{m.Slot2}}</p>
-			<img class="img-fluid" width="150" height="150" src="{{m.Slot2.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot2.Imagen.url}}" alt="Image">
 			<p>{{m.Slot3}}</p>
-			<img class="img-fluid"  width="150" height="150" src="{{m.Slot3.Imagen.url}}" alt="Image">
+			<img class="img-fluid"  width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot3.Imagen.url}}" alt="Image">
 		{% endifequal %}
 		{% ifequal posi '5' %}
 			<p>{{m.Slot4}}</p>
-			<img class="img-fluid" width="150" height="150" src="{{m.Slot4.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot4.Imagen.url}}" alt="Image">
 			<p>{{m.Slot5}}</p>
-			<img class="img-fluid" width="150" height="150" src="{{m.Slot5.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot5.Imagen.url}}" alt="Image">
 			<p>{{m.Slot6}}</p>
-			<img class="img-fluid" width="150" height="150" src="{{m.Slot6.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
 		{% endifequal %}
 		{% ifequal posi '6' %}
 			<p>{{m.Slot7}}</p>
-			<img class="img-fluid" width="150" height="150"  src="{{m.Slot7.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"   src="{{m.Slot7.Imagen.url}}" alt="Image">
 			<p>{{m.Slot8}}</p>
-			<img class="img-fluid" width="150" height="150" src="{{m.Slot8.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot8.Imagen.url}}" alt="Image">
 			<p>{{m.Slot9}}</p>
-			<img class="img-fluid" width="150" height="150" src="{{m.Slot9.Imagen.url}}" alt="Image">
+			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
 		{% endifequal %}
 	</div>
 	<div class="col-sm-6" style="background-color:#c5e7fb; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
-		<h1 class="text-primary">{{m.Slot7}}</h1>
-			<img class="img-fluid" width="150" height="150"  src="{{m.Slot7.Imagen.url}}" alt="Image">
+		<h1 class="text-info">{{m.Slot7}}</h1>
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot7.Imagen.url}}" alt="Image">
 		<p>{{m.Slot7.Seccion}}</p>
 		<p>{{m.Slot7.Contenido}}</p>
 		<p class="text-danger">${{m.Slot7.Precio}}</p>

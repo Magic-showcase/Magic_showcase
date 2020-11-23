@@ -8,10 +8,10 @@
         <strong>Lo siento!</strong> {{error}}
       </div>
     {%  endif  %}
-<div id="login" class="Login_body">
+<div id="login" class="Login_body mt-5">
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
+            <div id="login-column" class="col-md-6"  style="background-color: #271338; border-radius: 20px; opacity: 0.9;">
                 <div id="login-box" class="col-md-12">
                     <form id="login-form" class="form" action="" method="POST">
                         {% csrf_token %}
@@ -40,7 +40,9 @@
                             <label for="email" class="text-info">Email:</label><br>
                             <input type="email" name="Email" id="Email" class="form-control" required="true">
                         </div>
+                        <div class="form-group">
                         <button class="btn btn-primary btn-blck" type="submit">crear</button>
+                        </div>
                     </form>
                 </div>
             </div>
