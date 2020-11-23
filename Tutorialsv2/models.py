@@ -1,7 +1,8 @@
 from django.db import models
 
 # importar clase de usuario
-from django.contrib.auth.models import User
+from Usuario.models import Users
+from cloudinary.models import CloudinaryField
 
 # create your models here
 
@@ -13,7 +14,7 @@ class Categoria(models.Model):
         verbose_name='Categoria'
         verbose_name_plural='Categorias'
     
-    def _str_(self):
+    def __str__(self):
         return self.Nombre
 
 
@@ -21,16 +22,16 @@ class Tutoriales(models.Model):
     Titulo=models.CharField(max_length=50)
     Contenido=models.TextField()
     #guardar sitio adecuado de imagen upload_to
-    Imagen=models.ImageField(upload_to='Blog', null=True, blank=True)
+    Imagen = CloudinaryField('image')
     #si un autor se va se borra el post
-    Autor=models.ForeignKey(User,on_delete=models.CASCADE)
+    Autor=models.ForeignKey(Users,on_delete=models.CASCADE)
     #relacion entre post y categoria
-    Categorias=models.ManyToManyField(Categoria)
+    Categorias=models.ForeignKey(Categoria,on_delete=models.CASCADE)
     Created=models.DateTimeField(auto_now_add=True)
     Update=models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name='Tutorial'
         verbose_name_plural='Tutoriales'
     
-    def _str_(self):
+    def __str__(self):
         return self.Titulo

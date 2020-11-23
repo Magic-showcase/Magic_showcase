@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'Preguntas',
     'cloudinary',
     'paypalcheckoutsdk',
+    'Tutorialsv2',
 ]
 
 MIDDLEWARE = [
