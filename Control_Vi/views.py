@@ -16,8 +16,10 @@ def Servicio_Control(request):
     Items = Item.objects.filter(Usuario=perfil)
     Show = Showcase.objects.filter(Usuario=perfil)
     serial_error = False
+    posi = 5
     if request.method == 'POST':
         datos_to_encode = request.POST.get('Led')
+        posi = datos_to_encode
         try:
             serial_connection = serial.Serial('/dev/ttyUSB0', 9600)
             time.sleep(2)
@@ -26,4 +28,4 @@ def Servicio_Control(request):
             serial_error = False
         except serial.SerialException:
               serial_error = True
-    return render(request,'Centro/Servicio_Control.html', {'serial_error': serial_error,"perfil":perfil,"Items":Items,"Show":Show})
+    return render(request,'Centro/Servicio_Control.html', {'serial_error': serial_error,"perfil":perfil,"Items":Items,"Show":Show,"posi":posi})
