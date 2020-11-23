@@ -8,8 +8,18 @@
 <section>
 	<div class="btn-group"></div>
 		<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
+			{% if Show %}
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				Vitrinas
+			</button>
+			<div class="dropdown-menu">
+				{%for S in Show %} 
+				<a class="dropdown-item" href="#">{{S.Nombrevi}}</a>
+				{% endfor %}
+			</div>	
+			{% endif %}
 			 <button type="button" class="btn btn-primary" onclick="location.href='/Crear_Item/'">Nuevo Ítem</button>
-			<button type="button" class="btn btn-primary" onclick="location.href='/Crear_Item/'">Nueva Vitrina</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='/Crear_Vitrina/'">Nueva Vitrina</button>
 	   </div>
 	</div>	
 	<br>
@@ -22,7 +32,7 @@
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
 		<p>{{m.Seccion}}</p>	
 		{% ifequal posi '4' %}
-			<p>{{m.Slot1}}</p>
+			<p><input type="submit" value="{{m.Slot1}}"></p>
 			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
 			<p>{{m.Slot2}}</p>
 			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot2.Imagen.url}}" alt="Image">
@@ -45,6 +55,7 @@
 			<p>{{m.Slot9}}</p>
 			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
 		{% endifequal %}
+		</form>
 	</div>
 	<div class="col-sm-6" style="background-color:#c5e7fb; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
 		<h1 class="text-info">{{m.Slot7}}</h1>

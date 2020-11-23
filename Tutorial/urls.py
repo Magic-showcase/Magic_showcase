@@ -7,5 +7,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('Tutorial/',views.Tutor,name="Tutorial"),
-   #path('Tucate/<int:Categoria_id>/',views.Blogfilt,name="Categoria"),
+   path('Tucate/<int:Categoria_id>/',views.Tutofilt,name="Tucate"),
 ]

@@ -6,5 +6,13 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 def Tutor(request):
     tuto = Tutorials.objects.all()
+    catego = Categoria.objects.all()
+    return render(request,'Centro/Tutorial.html',{"tuto":tuto,"catego":catego})
 
-    return render(request,'Centro/Tutorial.html',{"tuto":tuto})
+def Tutofilt(request, Categoria_id):
+    categotias = Categoria.objects.get(id= Categoria_id)
+    cate = Categoria.objects.all()
+    Tuto = Tutorials.objects.filter(Categorias=categotias)
+
+    return render(request,'Centro/Tutcateg.html',{"Tuto":Tuto,"categotias":categotias,"cate":cate})
+
