@@ -1,0 +1,89 @@
+{% extends "Padre/Dad.html"  %}
+<!--Cargar carpeta static-->
+{% load static %}
+{% block title %} Nuevo Item @ {{request.user.username}}  {% endblock %}
+{% block content %}
+
+    <div id="login" class="Login_body mt-5" >
+        <div class="container" >
+            <div id="login-row" class="row justify-content-center align-items-center" >
+                <div id="login-column" class="col-md-6" style="background-color: #D8D5F4; border-radius: 20px;">
+                    <div id="login-box" class="col-md-12" >
+                        <form id="login-form" class="form" action="/Crear_Vitrina/" method="POST" style="color: mistyrose; "  enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <h3 class="text-center text-info">Nuevo Vitrina</h3>
+                        <div class="form-group">
+                            <label for="Titulo" class="text-info">Nombre:</label><br>
+                            <input type="text" name="Nombre" id="Nombre" class="form-control" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="Seccion" class="text-info">Seccion:</label><br>
+                            <input type="text" name="Seccion" id="Seccion" class="form-control" required="true">
+                        </div>
+                        <label for="Item1" class="text-info">Item1</label><br>
+                        <select name="Item1" id="Item1">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item2" class="text-info">Item2</label><br>
+                        <select name="Item2" id="Item2">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item3" class="text-info">Item3</label><br>
+                        <select name="Item3" id="Item3">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item4" class="text-info">Item4</label><br>
+                        <select name="Item4" id="Item4">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item5" class="text-info">Item5</label><br>
+                        <select name="Item5" id="Item5">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item6" class="text-info">Item6</label><br>
+                        <select name="Item6" id="Item6">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item7" class="text-info">Item7</label><br>
+                        <select name="Item7" id="Item7">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item8" class="text-info">Item8</label><br>
+                        <select name="Item8" id="Item8">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <label for="Item9" class="text-info">Item9</label><br>
+                        <select name="Item9" id="Item9">
+                            {%for Item in Ite %} 
+                                <option value="{{Item.id}}">{{Item.Nombre}}</option>   
+                            {% endfor %}
+                        </select>
+                        <div class="form-group">
+                        <button class="btn btn-primary btn-blck mt-5" type="submit">crear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}

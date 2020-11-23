@@ -32,6 +32,57 @@ def Itemcre(request):
 
     return render(request,"Centro/Itemcreate.html",{'Error':Error,'Confirma':Confirma})
 
+@login_required(login_url='/Login/')
+def Vicre(request):
+    perfil = request.user.users
+    Ite = Item.objects.filter(Usuario=perfil)
+    Error=False
+    Confirma=False
+    if request.POST:
+        Sho = Showcase()
+        Sho.Usuario = perfil
+        Sho.Nombrevi = request.POST.get('Nombre')
+        Sho.Seccion = request.POST.get('Seccion')
+
+        Slot1 = Item()
+        Slot2 = Item()
+        Slot3 = Item()
+        Slot4 = Item()
+        Slot5 = Item()
+        Slot6 = Item()
+        Slot7 = Item()
+        Slot8 = Item()
+        Slot9 = Item()
+
+        Slot1.id = request.POST.get('Item1')
+        Slot2.id = request.POST.get('Item2')
+        Slot3.id = request.POST.get('Item3')
+        Slot4.id = request.POST.get('Item4')
+        Slot5.id = request.POST.get('Item5')
+        Slot6.id = request.POST.get('Item6')
+        Slot7.id = request.POST.get('Item7')
+        Slot8.id = request.POST.get('Item8')
+        Slot9.id = request.POST.get('Item9')
+
+        Sho.Slot1 = Slot1
+        Sho.Slot2 = Slot2
+        Sho.Slot3 = Slot3
+        Sho.Slot4 = Slot4
+        Sho.Slot5 = Slot5
+        Sho.Slot6 = Slot6
+        Sho.Slot7 = Slot7
+        Sho.Slot8 = Slot8
+        Sho.Slot9 = Slot9
+        try:
+            Sho.save()
+            Confirma=True
+            Error=False
+        except:
+            Error=True
+            Confirma=False
+
+
+    return render(request,"Centro/Crearvit.html",{'Error':Error,'Confirma':Confirma,'Ite':Ite})
 
 @login_required(login_url='/Login/')
 def Servicio_Control(request):

@@ -3,6 +3,18 @@
 {% load static %}
 {% block title %} Nuevo Blog @ {{request.user.username}}  {% endblock %}
 {% block content %}
+{% if Error %}
+<div class="alert alert-danger alert-dismissible fade show mt-5">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>Upss! Al parecer no se compartió su POST </strong> Inténtelo de nuevo 
+</div>
+{% endif %}
+{% if Confirma %}
+<div class="alert alert-success alert-dismissible fade show mt-5">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>Gracias ! </strong> Tu POST fue compartido 
+</div>
+{% endif %}
     <div id="login" class="Login_body mt-5">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
