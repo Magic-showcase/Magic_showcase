@@ -1,5 +1,5 @@
 from django.urls import path
-from Nucleo.views import Home,Tutoriales,Contactos
+from Nucleo.views import Home,Contactos
 #importar settings para usar 2 variables
 from django.conf import settings
 #importar archivos static
