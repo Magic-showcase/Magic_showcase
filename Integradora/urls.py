@@ -25,6 +25,7 @@ urlpatterns = [
     path('',include('Blog.urls')),
     path('',include('Usuario.urls')),
     path('',include('Preguntas.urls')),
+    path('',include('Tutorialsv2.urls')),
 ]
 
 #person_admin 
