@@ -14,6 +14,7 @@ from .models import Item,Showcase
 def Servicio_Control(request):
     perfil = request.user.users
     Items = Item.objects.filter(Usuario=perfil)
+    Show = Showcase.objects.filter(Usuario=perfil)
     serial_error = False
     if request.method == 'POST':
         datos_to_encode = request.POST.get('Led')
@@ -25,4 +26,4 @@ def Servicio_Control(request):
             serial_error = False
         except serial.SerialException:
               serial_error = True
-    return render(request,'Centro/Servicio_Control.html', {'serial_error': serial_error,"perfil":perfil,"Items":Items})
+    return render(request,'Centro/Servicio_Control.html', {'serial_error': serial_error,"perfil":perfil,"Items":Items,"Show":Show})

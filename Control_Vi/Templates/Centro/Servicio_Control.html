@@ -22,7 +22,7 @@
 		 </div>
 		</div> 
 		<div class="cardbox-item " >
-				 <img class="img-fluid" src="/media/Blog/Slenderman.gif" alt="Image">
+				 <img class="img-fluid" src="/media/Tienda/vitrina.jpg" alt="Image">
 		</div>
 		<div class="cardbox-base " >
 			<form action="/Servicio_Control/" method="POST" style="color: antiquewhite; text-align: center;">
@@ -48,10 +48,26 @@
 	</div>
 	</div>
    </section>
+	{% for m in Show %}
+		<p>{{m.Nombrevi}}</p>
+		<p>{{m.Seccion}}</p>	
+		<p>{{m.Slot1}}</p>
 
-  {% for Item in Items %}
-	   <p>{{Item.Nombre}}</p>
-	   <img class="img-fluid rounded-circle" src="{{ Item.Imagen.url }}" alt="User">
-  {% endfor %}
+		<p>{{m.Slot2}}</p>
 
+		<p>{{m.Slot3}}</p>
+
+		<p>{{m.Slot4}}</p>
+
+		<p>{{m.Slot5}}</p>
+
+		<p>{{m.Slot6}}</p>
+
+		<p>{{m.Slot7}}</p>
+
+		<p>{{m.Slot8}}</p>
+
+		<p>{{m.Slot9}}</p>
+	{% endfor %}
+  
 {% endblock %}

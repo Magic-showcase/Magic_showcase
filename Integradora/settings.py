@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     'Preguntas',
     'cloudinary',
     'paypalcheckoutsdk',
-    'Tutorialsv2',
+    'Tutorial',
 ]
 
 MIDDLEWARE = [
@@ -96,6 +96,7 @@ TEMPLATES = [
             BASE_DIR / 'Usuario/Templates',
             BASE_DIR / 'Control_Vi/Templates',
             BASE_DIR / 'Preguntas/Templates',
+            BASE_DIR / 'Tutorial/Templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

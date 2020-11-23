@@ -1,10 +1,9 @@
 from django.db import models
-
-# importar clase de usuario
+#importar clase user
 from Usuario.models import Users
+#importar cloudinary
 from cloudinary.models import CloudinaryField
-
-# create your models here
+#Create your models here.
 
 class Categoria(models.Model):
     Nombre=models.CharField(max_length=50)
@@ -15,10 +14,10 @@ class Categoria(models.Model):
         verbose_name_plural='Categorias'
     
     def __str__(self):
-        return self.Nombre
+        return str(self.Nombre)
 
 
-class Tutoriales(models.Model):
+class Tutorials(models.Model):
     Titulo=models.CharField(max_length=50)
     Contenido=models.TextField()
     #guardar sitio adecuado de imagen upload_to
@@ -34,4 +33,4 @@ class Tutoriales(models.Model):
         verbose_name_plural='Tutoriales'
     
     def __str__(self):
-        return self.Titulo
+        return str(self.Titulo)
