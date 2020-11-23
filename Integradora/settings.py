@@ -43,7 +43,7 @@ else:
     #Cuenta 
     #EMAIL_HOST_USER="Magic.showcase.questions@gmail.com"
     EMAIL_HOST_PASSWORD="bajfgpcgwwzeqend"
-    DEFAUL_FROM_EMAIL = 'Magic restore'
+    DEFAUL_FROM_EMAIL = 'Magic restore password'
 
 
 ALLOWED_HOSTS = ['*']

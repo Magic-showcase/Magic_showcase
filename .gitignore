@@ -588,7 +588,12 @@ eventup/media/
 # Environment
 .envs/
 .vscode/
-users/migrations/
-posts/migrations/
-
-
+Usuario/migrations/
+Tienda/migrations/
+Tutorial/migrations/
+Preguntas/migrations/
+Nucleo/migrations/
+Online_garage_store/migrations/
+Integradora/migrations/
+Control_vi/migrations/
+Blog/migrations/
