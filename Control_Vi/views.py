@@ -8,8 +8,31 @@ from Usuario.models import Users
 from django.contrib.auth.decorators import login_required
 from .models import Item,Showcase
 
+@login_required(login_url='/Login/')
+def Itemcre(request):
+    perfil = request.user.users
+    Error=False
+    Confirma=False
+    if request.POST:
+        Ite = Item()
+        Ite.Usuario = perfil
+        Ite.Nombre = request.POST.get('Nombre')
+        Ite.Seccion = request.POST.get('Seccion')
+        Ite.Contenido = request.POST.get('Contenido')
+        Ite.Precio = request.POST.get('Precio')
+        Ite.Imagen = request.FILES.get('Imagen')
+        try:
+            Ite.save()
+            Confirma=True
+            Error=False
+        except:
+            Error=True
+            Confirma=False
 
-# Create your views here.
+
+    return render(request,"Centro/Itemcreate.html",{'Error':Error,'Confirma':Confirma})
+
+
 @login_required(login_url='/Login/')
 def Servicio_Control(request):
     perfil = request.user.users
