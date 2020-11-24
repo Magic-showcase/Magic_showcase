@@ -33,6 +33,14 @@ def Itemcre(request):
     return render(request,"Centro/Itemcreate.html",{'Error':Error,'Confirma':Confirma})
 
 @login_required(login_url='/Login/')
+def Vifil(request, Showcase_id):
+    Showcvi = Showcase.objects.filter(id= Showcase_id)
+    return render(request,"Centro/Vitrinafilt.html",{'Showcvi':Showcvi})
+
+
+
+
+@login_required(login_url='/Login/')
 def Vicre(request):
     perfil = request.user.users
     Ite = Item.objects.filter(Usuario=perfil)
