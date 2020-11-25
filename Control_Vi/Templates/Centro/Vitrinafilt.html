@@ -30,7 +30,6 @@
 <div class="row">
 	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
-		<a href="{% url 'vitrieli' m.id%}">Eliminar</a>
 		<p>{{m.Seccion}}</p>	
 		{% ifequal posi '4' %}
 			<p><input type="submit" value="{{m.Slot1}}"></p>
@@ -59,7 +58,12 @@
 		</form>
 	</div>
 	<div class="col-sm-6" style="background-color:#c5e7fb; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
-		<h1 class="text-info">{{m.Slot7}}</h1>
+		<div ><h1 class="text-info">{{m.Slot7}}</h1></div>
+		<div title="Eliminar" style=" position: absolute; top: 5px; right: 10px;">
+			<a  href="{% url 'vitrieli' m.id%}">
+				<img  src="https://img.icons8.com/nolan/64/delete-sign.png" width="30" height="30"/>
+			</a>
+		</div>
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot7.Imagen.url}}" alt="Image">
 		<p>{{m.Slot7.Seccion}}</p>
 		<p>{{m.Slot7.Contenido}}</p>
