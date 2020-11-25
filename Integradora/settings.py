@@ -27,25 +27,7 @@ SECRET_KEY = 'admin132'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-
-if DEBUG:
-    EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
-
-else:
-    EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
-    #Espesificar el host
-    EMAIL_HOST="smtp.gmail.com"
-    #Protocolo de seguridad
-    EMAIL_USE_TLS=True
-    #Puerto
-    EMAIL_PORT=587
-    #Cuenta 
-    #EMAIL_HOST_USER="Magic.showcase.questions@gmail.com"
-    EMAIL_HOST_PASSWORD="bajfgpcgwwzeqend"
-    DEFAUL_FROM_EMAIL = 'Magic restore password'
-
-
+    
 ALLOWED_HOSTS = ['*']
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
@@ -198,7 +180,7 @@ EMAIL_HOST_USER="Magic.showcase.questions@gmail.com"
 
 EMAIL_HOST_PASSWORD="bajfgpcgwwzeqend"
 
-
+DEFAUL_FROM_EMAIL = 'Magic Showcase password'
 
 
 #configuracion cloudinary
