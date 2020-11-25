@@ -4,7 +4,17 @@
 {% load static %}
 {% block title %} Showcase @ {{request.user.username}}  {% endblock %}
 {% block content %}
-<h1 style="color: antiquewhite;">{{posi}}</h1>
+
+{% if messages  %}
+	{% for m in messages %}
+		<div class="alert alert-info alert-dismissible fade show mt-5">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{m}}</strong> 
+		</div>
+	{% endfor %}
+
+{% endif %}
+
 <section>
 	<div class="btn-group"></div>
 		<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
@@ -24,65 +34,5 @@
 	</div>	
 	<br>
 </section>
-{% for m in Show %}
-<section class="hero mt-5">
-<div class="container" class="hero mt-5">
-<div class="row">
-	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
-		<h1 class="text-primary">{{m.Nombrevi}}</h1>
-		<p>{{m.Seccion}}</p>	
-		{% ifequal posi '4' %}
-			<p><input type="submit" value="{{m.Slot1}}"></p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
-			<p>{{m.Slot2}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot2.Imagen.url}}" alt="Image">
-			<p>{{m.Slot3}}</p>
-			<img class="img-fluid"  width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot3.Imagen.url}}" alt="Image">
-		{% endifequal %}
-		{% ifequal posi '5' %}
-			<p>{{m.Slot4}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot4.Imagen.url}}" alt="Image">
-			<p>{{m.Slot5}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot5.Imagen.url}}" alt="Image">
-			<p>{{m.Slot6}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
-		{% endifequal %}
-		{% ifequal posi '6' %}
-			<p>{{m.Slot7}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"   src="{{m.Slot7.Imagen.url}}" alt="Image">
-			<p>{{m.Slot8}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot8.Imagen.url}}" alt="Image">
-			<p>{{m.Slot9}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
-		{% endifequal %}
-		</form>
-	</div>
-	<div class="col-sm-6" style="background-color:#c5e7fb; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
-		<h1 class="text-info">{{m.Slot7}}</h1>
-			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot7.Imagen.url}}" alt="Image">
-		<p>{{m.Slot7.Seccion}}</p>
-		<p>{{m.Slot7.Contenido}}</p>
-		<p class="text-danger">${{m.Slot7.Precio}}</p>
-		<form action="/Servicio_Control/" method="POST" style="color: antiquewhite; text-align: center;">
-			{% csrf_token %}
-			 {% if serial_error %}
-				 <div class="alert alert-danger alert-dismissible fade show mt-5">
-				 <button type="button" class="close" data-dismiss="alert">&times;</button>
-				 <strong>Upss! Al parecer no se estableció la conexión</strong> ¿Conectaste tu vitrina?
-				</div>
-			 {% endif %}					
-			 <button type="submit" class="btn btn-danger mt-5" id="valor1" name="Led" value="1">Apagar</button>
-			 <button type="submit" class="btn btn-success mt-5" id="valor2" name="Led" value="3">Encender</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor3" name="Led" value="4">0</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor4" name="Led" value="5">90</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor5" name="Led" value="6">180</button>
-			</form>
-			<br>
-	</div>
-</div>
-</div>
-</section>
-<br>
-{% endfor %}
-<br>
+
 {% endblock %}

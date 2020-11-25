@@ -7,15 +7,16 @@
 <section>
 	<div class="btn-group"></div>
 		<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
-			{% if Showcvi %}
+			{% if Show %}
 			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 				Vitrinas
 			</button>
 			<div class="dropdown-menu">
-				{%for S in Showcvi %} 
+				{%for S in Show %} 
 				<a class="dropdown-item" href="{% url 'vifil' S.id %}">{{S.Nombrevi}}</a>
-				{% endfor %}
-			</div>	
+                {% endfor %}
+                <a class="dropdown-item" href="/Servicio_Control/">Servicio control</a>
+			</div>	 
 			{% endif %}
 			 <button type="button" class="btn btn-primary" onclick="location.href='/Crear_Item/'">Nuevo Ítem</button>
 			<button type="button" class="btn btn-primary" onclick="location.href='/Crear_Vitrina/'">Nueva Vitrina</button>
@@ -29,6 +30,7 @@
 <div class="row">
 	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
+		<a href="{% url 'vitrieli' m.id%}">Eliminar</a>
 		<p>{{m.Seccion}}</p>	
 		{% ifequal posi '4' %}
 			<p><input type="submit" value="{{m.Slot1}}"></p>
@@ -62,7 +64,7 @@
 		<p>{{m.Slot7.Seccion}}</p>
 		<p>{{m.Slot7.Contenido}}</p>
 		<p class="text-danger">${{m.Slot7.Precio}}</p>
-		<form action="/Servicio_Control/" method="POST" style="color: antiquewhite; text-align: center;">
+		<form action="{% url 'vifil' m.id %}" method="POST" style="color: antiquewhite; text-align: center;">
 			{% csrf_token %}
 			 {% if serial_error %}
 				 <div class="alert alert-danger alert-dismissible fade show mt-5">
