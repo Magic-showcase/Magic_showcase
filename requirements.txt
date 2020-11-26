@@ -1,4 +1,3 @@
-//AdvancedHTTPServer==2.0.11
 alembic==1.4.2.dev0
 apparmor==2.13.2
 asgiref==3.2.10
