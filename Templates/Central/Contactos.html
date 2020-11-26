@@ -3,82 +3,50 @@
 {% load static %}
 {% block title %} Contactos @ {{request.user.username}}  {% endblock %}
 {% block content %}
+<br>
+<br>
+<div class="container mb-5">
+  <div class="row text-center">
+      <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static '/Img/Leo.jpeg' %}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">Leonel Roberto Terrazas Mejiay</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <br>
+              <span class="small text-uppercase text-muted">leoterrazas@gmail.com</span>
+              <br>
+              <span class="small text-uppercase text-muted">614 379 6189</span>
+          </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static '/Img/Alexander.jpeg' %}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">Pedro Alexander Aguilar Gonzalez</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <br>
+              <span class="small text-uppercase text-muted">tem.alxaguilar@gmail.com</span>
+              <br>
+              <span class="small text-uppercase text-muted">614 164 9118</span>
+            </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static '/Img/Godoy.jpeg' %}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">David Alejandro Godoy Salas</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <br>
+              <span class="small text-uppercase text-muted">alejandrogodoy723@gmail.com</span>
+              <br>
+              <span class="small text-uppercase text-muted">614 382 2712</span>
+          </div>
+      </div><!-- End -->
 
-{#Utilizacion de variables para mostrar datos a traves de urls#}
-    <h4>Fecha: {{fechahoy.day}} / {{fechahoy.month}} / {{fechahoy.year}}</h4>
-{#Sintaxis que permite obtener datos en variable "nombreuser"#}
-    <h1>Nombre: {{nombreuser}}</h1>
-
-    <h3>Total de miembros en el equipo: {{equipodv|length}}</h3>
-    <ul>
-        {#Se muestran los miembros del equipo#}
-        {% for team  in equipodv%}
-      {#En caso de que el usuario logeado coincida con alguno de la lista, este se resalta#}
-            {% if team == '{{nombreuser}}'%}
-                <li style='color:gold;'>{{team}}, {{maildv}} </li>
-            {% else %}
-                <li style='font:bold;'>{{team}}, {{maildv}}</li>
-            {% endif %}
-        {% endfor %}
-
-    </ul>
-
-    {#Utilizacion de html basico para mostrar datos #}
-
-    <table>
-        <tr>
-          <th>Nombre</th>
-          <th>Mail</th>
-          <th>Phone</th>
-        </tr>
-        <tr>
-            
-          <td>Yosmar Rene Rodriguez Gonzalez </td>
-          <td>yosmar53@gmail.com</td>
-          <td>61412345678</td>
-        </tr>
-        <tr>
-          <td>Pedro Alexander Aguilar Gonzalez</td>
-          <td>tem.alxaguilar@gmail.com</td>
-          <td>6141649118</td>
-        </tr>
-        <tr>
-          <td>Leonel Roberto Terrazas Mejia</td>
-          <td>leoterrazas@gmail.com</td>
-          <td>61424681012</td>
-        </tr>
-        <tr>
-          <td>David Alejandro Godoy Salas</td>
-          <td>alejandrogodoy723@gmail,com</td>
-          <td>61485274182</td>
-        </tr>
-      </table>
-
-{# Sintaxis meramente explicita para aclarar el estilo de la tabla, esto obviamente se divide en subcarpeta de estilos dependiendo del modelo utilizado#}
-
-      <style>
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-        </style>
-
-
-
-<h2><
-
-
+      <!-- Team item -->
+      <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{% static '/Img/Rene.jpeg' %}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">Yosmar Rene Rodriguez Gonzalez </h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <br>
+              <span class="small text-uppercase text-muted">ryosmar53@gmail.com</span>
+              <br>
+              <span class="small text-uppercase text-muted">635 111 0575</span>
+          </div>
+      </div><!-- End -->
+  </div>
+</div>
 
 
 {% endblock %}
