@@ -1,6 +1,6 @@
 {% extends "Centro/dad.html"  %}
 {% load static %}
-{% block title %} @{{ request.user.username }} {% endblock %}   
+{% block title %} Perfil  @{{ request.user.username }} {% endblock %}   
 {% block content %}
 <div class="container mt-5 " style="color: antiquewhite;">
     <div class="row justify-content-md-center">
@@ -45,7 +45,7 @@
                     
                          <div class="alert alert-danger alert-dismissible fade show">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <b> Bio: </b> {{error}}
+                            <b> Biografía: </b> {{error}}
                          </div>
                     
                         {% endfor %}

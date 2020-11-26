@@ -1,7 +1,7 @@
 {% extends "Padre/Dad.html"  %}
 <!--Cargar carpeta static-->
 {% load static %}
-{% block title %} Nuevo Item @ {{request.user.username}}  {% endblock %}
+{% block title %} Nuevo Ítem @ {{request.user.username}}  {% endblock %}
 {% block content %}
 {% if Error %}
 <div class="alert alert-danger alert-dismissible fade show mt-5">
@@ -28,7 +28,7 @@
                             <input type="text" name="Nombre" id="Nombre" class="form-control" required="true">
                         </div>
                         <div class="form-group">
-                            <label for="Seccion" class="text-info">Seccion:</label><br>
+                            <label for="Seccion" class="text-info">Sección:</label><br>
                             <input type="text" name="Seccion" id="Seccion" class="form-control" required="true">
                         </div>
                         <div class="form-group text-muted">
@@ -44,7 +44,7 @@
                             <input type="number" name="Precio" id="Precio" min="1" max="10000" step="0.1">
                         </div>
                         <div class="form-group">
-                        <button class="btn btn-primary btn-blck mt-5" type="submit">crear</button>
+                        <button class="btn btn-primary btn-blck mt-5" type="submit">Crear</button>
                         </div>
                     </form>
                 </div>

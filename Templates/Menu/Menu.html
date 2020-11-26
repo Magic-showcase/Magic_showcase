@@ -30,14 +30,14 @@
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Contactos'  %}">Contacto</a>
           </li> 
           {% if request.user.users %}
-          <a class="navbar-item"  href="/Perfil/">
+          <a class="navbar-item"  href="{% url 'Perfil' %}">
             <img src="{{request.user.users.Photo.url}}" alt="Logo" width="50" height="50"  style="  border-radius: 50px;"  >
           </a>
-          <a class="navbar-item"  href="/Logout/">
+          <a class="navbar-item"  href="{% url 'Logout' %}">
             <img src="https://img.icons8.com/nolan/64/logout-rounded-left.png" width="50" height="50"/>
           </a>
           {% else %}
-          <a class="navbar-item"  href="/Login/">
+          <a class="navbar-item"  href="{% url 'Login' %}">
             <img src="https://img.icons8.com/nolan/64/login-rounded-right.png" width="50" height="50"/>
           </a>
           {% endif %}

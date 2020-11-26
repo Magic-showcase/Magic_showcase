@@ -3,7 +3,6 @@
 {% load static %}
 {% block title %} Showcase @ {{request.user.username}}  {% endblock %}
 {% block content %}
-<h1 style="color: antiquewhite;">{{posi}}</h1>
 <section>
 	<div class="btn-group"></div>
 		<div style="width: 75%; margin: auto; text-align: center;color: cornsilk;">
@@ -15,7 +14,7 @@
 				{%for S in Show %} 
 				<a class="dropdown-item" href="{% url 'vifil' S.id %}">{{S.Nombrevi}}</a>
                 {% endfor %}
-                <a class="dropdown-item" href="/Servicio_Control/">Servicio control</a>
+                <a class="dropdown-item" href="{% url 'Servicio_Control'  %}">Servicio control</a>
 			</div>	 
 			{% endif %}
 			 <button type="button" class="btn btn-primary" onclick="location.href='/Crear_Item/'">Nuevo Ítem</button>
@@ -31,7 +30,7 @@
 	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
 		<p class="text-info">{{m.Seccion}}</p>	
-		{% ifequal posi '4' %}
+		{% if posi == '4' %}
 			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot1" >{{m.Slot1}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
@@ -43,8 +42,7 @@
 			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot3" >{{m.Slot3}}</button>
 			<br>
 			<img class="img-fluid mt-5"  width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot3.Imagen.url}}" alt="Image">
-		{% endifequal %}
-		{% ifequal posi '5' %}
+		{% elif posi == '5' %}
 			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot4" >{{m.Slot4}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot4.Imagen.url}}" alt="Image">
@@ -56,8 +54,7 @@
 			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot6" >{{m.Slot6}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
-		{% endifequal %}
-		{% ifequal posi '6' %}
+		{% elif posi == '6' %}
 			<button data-toggle="collapse" class="btn btn-success mt-5" data-target="#slot7" >{{m.Slot7}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"   src="{{m.Slot7.Imagen.url}}" alt="Image">
@@ -69,8 +66,19 @@
 			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot9" >{{m.Slot9}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
-		
-		{% endifequal %}
+		{% else %}
+			<button data-toggle="collapse" class="btn btn-success mt-5" data-target="#slot7" >{{m.Slot7}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"   src="{{m.Slot7.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot8" >{{m.Slot8}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot8.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot9" >{{m.Slot9}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
+		{% endif %}
 		</form>
 	</div>
 	<div class="col-sm-6" style="background-color:#c5e7fb; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
@@ -146,10 +154,12 @@
 				</div>
 			 {% endif %}					
 			 <button type="submit" class="btn btn-danger mt-5" id="valor1" name="Led" value="1">Apagar</button>
-			 <button type="submit" class="btn btn-success mt-5" id="valor2" name="Led" value="3">Encender</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor3" name="Led" value="4">0</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor4" name="Led" value="5">90</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor5" name="Led" value="6">180</button>
+			 <button type="submit" class="btn btn-success mt-5" id="valor2" name="Led" value="2">Encender</button>
+			 <button type="submit" class="btn btn-success mt-5" id="valor3" name="Led" value="3">Intermitentes </button>
+			 <br>
+			 <button type="submit" class="btn btn-info mt-5" id="valor3" name="Led" value="4">Slot 1,2,3</button>
+			 <button type="submit" class="btn btn-info mt-5" id="valor4" name="Led" value="5">Slot 4,5,6</button>
+			 <button type="submit" class="btn btn-info mt-5" id="valor5" name="Led" value="6">Slot 7,8,9</button>
 			</form>
 			<br>
 	</div>
