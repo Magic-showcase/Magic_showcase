@@ -51,6 +51,7 @@ def Vifil(request, Showcase_id):
             serial_error = False
         except serial.SerialException:
               serial_error = True
+    
     return render(request,"Centro/Vitrinafilt.html",{'Showcvi':Showcvi,"Show":Show,"posi":posi,'serial_error': serial_error})
 
 @login_required(login_url='/Login/')
@@ -61,9 +62,10 @@ def Edivi(request, Showcase_id):
     Error=False
     Confirma=False
     if request.POST:
-        Showcvi.Usuario = perfil
-        Showcvi.Nombrevi = request.POST.get('Nombre')
-        Showcvi.Seccion = request.POST.get('Seccion')
+        S = Showcase.objects.get(id= Showcase_id)
+        S.Usuario = perfil
+        S.Nombrevi = request.POST.get('Nombre')
+        S.Seccion = request.POST.get('Seccion')
 
         Slot1 = Item()
         Slot2 = Item()
@@ -85,17 +87,17 @@ def Edivi(request, Showcase_id):
         Slot8.id = request.POST.get('Item8')
         Slot9.id = request.POST.get('Item9')
 
-        Showcvi.Slot1 = Slot1
-        Showcvi.Slot2 = Slot2
-        Showcvi.Slot3 = Slot3
-        Showcvi.Slot4 = Slot4
-        Showcvi.Slot5 = Slot5
-        Showcvi.Slot6 = Slot6
-        Showcvi.Slot7 = Slot7
-        Showcvi.Slot8 = Slot8
-        Showcvi.Slot9 = Slot9
+        S.Slot1 = Slot1
+        S.Slot2 = Slot2
+        S.Slot3 = Slot3
+        S.Slot4 = Slot4
+        S.Slot5 = Slot5
+        S.Slot6 = Slot6
+        S.Slot7 = Slot7
+        S.Slot8 = Slot8
+        S.Slot9 = Slot9
         try:
-            Showcvi.save()
+            S.save()
             Confirma=True
             Error=False
         except:

@@ -8,7 +8,7 @@ from Usuario.models import Users
 #paypal
 from paypalcheckoutsdk.core import PayPalHttpClient, SandboxEnvironment
 from paypalcheckoutsdk.orders import OrdersGetRequest, OrdersCaptureRequest
-
+from django.contrib import messages
 import sys, json
 
 
@@ -29,8 +29,8 @@ def pago(request, pk):
     perfil = request.user.users
     perfil2 = request.user
     prd = Producto.objects.get(id=pk)
-    datos = json.loads(request.body)
-    order_id = datos['orderID']
+    data = json.loads(request.body)
+    order_id = data['orderID']
     #metodo de la classe getorder
     detalles = GetOrder().get_order(order_id)
     detalle_precio = float(detalles.result.purchase_units[0].amount.value)
@@ -49,21 +49,22 @@ def pago(request, pk):
         ventanu.Paypal_cliente = transac.result.payer.email_address
         ventanu.Direccion_cliente = transac.result.purchase_units[0].shipping.address.address_line_1
         ventanu.save()
-
-
-        datos = {
+        
+        data = {
             "id": f"{transac.result.id}",
             "cliente": f" { perfil } ",
-            "message":"perfecto XD"
+            "message":"Gracías por su compra"
         }
 
         return JsonResponse(datos)
+
     
     else:
-        datos = {
-            "message": "No se pudo realizar la venta T_T"
+        data = {
+            "message": "No se pudo realizar la venta :C"
         }
-        return JsonResponse(datos)
+
+        return JsonResponse(data)
     
 
 #paypal

@@ -1,21 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from Blog.models import POST,Categoria
 from Usuario.models import Users
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 # Create your views here.
 def Blog(request):
+    perf = request.user.users
     categotias = Categoria.objects.all()
     post = POST.objects.all()
 
-    return render(request,'Centro/Blog.html',{"post":post,"categotias":categotias})
+    return render(request,'Centro/Blog.html',{"post":post,"categotias":categotias,"perf":perf})
 
 def Blogfilt(request, Categoria_id):
+    perfil = request.user.users
     categotias = Categoria.objects.get(id= Categoria_id)
     cate = Categoria.objects.all()
     post = POST.objects.filter(Categorias=categotias)
 
-    return render(request,'Centro/Categoria_Blog.html',{"post":post,"categotias":categotias,"cate":cate})
+    return render(request,'Centro/Categoria_Blog.html',{"post":post,"categotias":categotias,"cate":cate,"perfil":perfil})
 
 
 

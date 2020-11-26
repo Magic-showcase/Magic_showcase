@@ -30,45 +30,114 @@
 <div class="row">
 	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
-		<p>{{m.Seccion}}</p>	
+		<p class="text-info">{{m.Seccion}}</p>	
 		{% ifequal posi '4' %}
-			<p><input type="submit" value="{{m.Slot1}}"></p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
-			<p>{{m.Slot2}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot2.Imagen.url}}" alt="Image">
-			<p>{{m.Slot3}}</p>
-			<img class="img-fluid"  width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot3.Imagen.url}}" alt="Image">
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot1" >{{m.Slot1}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot2" >{{m.Slot2}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot2.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot3" >{{m.Slot3}}</button>
+			<br>
+			<img class="img-fluid mt-5"  width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot3.Imagen.url}}" alt="Image">
 		{% endifequal %}
 		{% ifequal posi '5' %}
-			<p>{{m.Slot4}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot4.Imagen.url}}" alt="Image">
-			<p>{{m.Slot5}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot5.Imagen.url}}" alt="Image">
-			<p>{{m.Slot6}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot4" >{{m.Slot4}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot4.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot5" >{{m.Slot5}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot5.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot6" >{{m.Slot6}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
 		{% endifequal %}
 		{% ifequal posi '6' %}
-			<p>{{m.Slot7}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"   src="{{m.Slot7.Imagen.url}}" alt="Image">
-			<p>{{m.Slot8}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot8.Imagen.url}}" alt="Image">
-			<p>{{m.Slot9}}</p>
-			<img class="img-fluid" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
+			<button data-toggle="collapse" class="btn btn-success mt-5" data-target="#slot7" >{{m.Slot7}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"   src="{{m.Slot7.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot8" >{{m.Slot8}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot8.Imagen.url}}" alt="Image">
+			<br>
+			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot9" >{{m.Slot9}}</button>
+			<br>
+			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
+		
 		{% endifequal %}
 		</form>
 	</div>
 	<div class="col-sm-6" style="background-color:#c5e7fb; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
 		<div ><h1 class="text-info">{{m.Slot7}}</h1></div>
-		<div title="Eliminar" style=" position: absolute; top: 5px; right: 10px;">
-			<a  href="{% url 'vitrieli' m.id%}">
+		<div style=" position: absolute; top: 5px; right: 10px;">
+			<a  title="Editar" href="{% url 'Edivi' m.id%}">
+				<img src="https://img.icons8.com/nolan/64/edit--v1.png" width="30" height="30"/>
+			</a>
+			<a title="Eliminar" href="{% url 'vitrieli' m.id%}">
 				<img  src="https://img.icons8.com/nolan/64/delete-sign.png" width="30" height="30"/>
 			</a>
 		</div>
+		<div id="slot1" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot1.Seccion}}</p>
+			<p>{{m.Slot1.Contenido}}</p>
+			<p class="text-danger">${{m.Slot1.Precio}}</p>
+		</div>
+		<div id="slot2" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot2.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot2.Seccion}}</p>
+			<p>{{m.Slot2.Contenido}}</p>
+			<p class="text-danger">${{m.Slot2.Precio}}</p>
+		</div>
+		<div id="slot3" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot3.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot3.Seccion}}</p>
+			<p>{{m.Slot3.Contenido}}</p>
+			<p class="text-danger">${{m.Slot3.Precio}}</p>
+		</div>
+		<div id="slot4" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot4.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot4.Seccion}}</p>
+			<p>{{m.Slot4.Contenido}}</p>
+			<p class="text-danger">${{m.Slot4.Precio}}</p>
+		</div>
+		<div id="slot5" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot5.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot5.Seccion}}</p>
+			<p>{{m.Slot5.Contenido}}</p>
+			<p class="text-danger">${{m.Slot5.Precio}}</p>
+		</div>
+		<div id="slot6" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot6.Seccion}}</p>
+			<p>{{m.Slot6.Contenido}}</p>
+			<p class="text-danger">${{m.Slot6.Precio}}</p>
+		</div>
+		<div id="slot7" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot7.Imagen.url}}" alt="Image">
-		<p>{{m.Slot7.Seccion}}</p>
-		<p>{{m.Slot7.Contenido}}</p>
-		<p class="text-danger">${{m.Slot7.Precio}}</p>
-		<form action="{% url 'vifil' m.id %}" method="POST" style="color: antiquewhite; text-align: center;">
+			<p class="text-success">{{m.Slot7.Seccion}}</p>
+			<p>{{m.Slot7.Contenido}}</p>
+			<p class="text-danger">${{m.Slot7.Precio}}</p>
+		</div>
+		<div id="slot8" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot8.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot8.Seccion}}</p>
+			<p>{{m.Slot8.Contenido}}</p>
+			<p class="text-danger">${{m.Slot8.Precio}}</p>
+		</div>
+		<div id="slot9" class="collapse mt-5">
+			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
+			<p class="text-success">{{m.Slot9.Seccion}}</p>
+			<p>{{m.Slot9.Contenido}}</p>
+			<p class="text-danger">${{m.Slot9.Precio}}</p>
+		</div>
+			<form action="{% url 'vifil' m.id %}" method="POST" style="color: antiquewhite; text-align: center;">
 			{% csrf_token %}
 			 {% if serial_error %}
 				 <div class="alert alert-danger alert-dismissible fade show mt-5">
@@ -91,3 +160,4 @@
 {% endfor %}
 <br>
 {% endblock %}
+
