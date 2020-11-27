@@ -231,9 +231,12 @@ p {
 }
 
 .footer {
-   background-color: rgba(8, 6, 22, 0.8);
-   width: 100%;
+  background-color: rgba(8, 6, 22, 0.8);
   height: 205px;
+  width: 100%;
+  text-align: center;
+  padding: 1em;
+  align-self: flex-end;
 }
 
 
