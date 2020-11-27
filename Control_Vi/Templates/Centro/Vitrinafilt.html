@@ -30,7 +30,7 @@
 	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
 		<p class="text-info">{{m.Seccion}}</p>	
-		{% if posi == '4' %}
+		{% if posi == '6' %}
 			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot1" >{{m.Slot1}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
@@ -54,7 +54,7 @@
 			<button data-toggle="collapse" class="btn btn-success mt-5"  data-target="#slot6" >{{m.Slot6}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
-		{% elif posi == '6' %}
+		{% elif posi == '4' %}
 			<button data-toggle="collapse" class="btn btn-success mt-5" data-target="#slot7" >{{m.Slot7}}</button>
 			<br>
 			<img class="img-fluid mt-5" width="150" height="150" style="border-radius: 20px;"   src="{{m.Slot7.Imagen.url}}" alt="Image">
@@ -157,9 +157,9 @@
 			 <button type="submit" class="btn btn-success mt-5" id="valor2" name="Led" value="2">Encender</button>
 			 <button type="submit" class="btn btn-success mt-5" id="valor3" name="Led" value="3">Intermitentes </button>
 			 <br>
-			 <button type="submit" class="btn btn-info mt-5" id="valor3" name="Led" value="4">Slot 1,2,3</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor4" name="Led" value="5">Slot 4,5,6</button>
-			 <button type="submit" class="btn btn-info mt-5" id="valor5" name="Led" value="6">Slot 7,8,9</button>
+			 <button type="submit" class="btn btn-info mt-5" id="valor4" name="Led" value="6">Slot 1,2,3</button>
+			 <button type="submit" class="btn btn-info mt-5" id="valor5" name="Led" value="5">Slot 4,5,6</button>
+			 <button type="submit" class="btn btn-info mt-5" id="valor6" name="Led" value="4">Slot 7,8,9</button>
 			</form>
 			<br>
 	</div>
