@@ -157,6 +157,21 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+
+STATICFILES_DIRS = (
+    BASE_DIR / 'Nucleo/static',
+)
+
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
+
+
+
 #carpeta para media 
 MEDIA_URL = '/media/'
 #Donde buscar los archivos multimedia
