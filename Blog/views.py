@@ -4,6 +4,9 @@ from Usuario.models import Users
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 # Create your views here.
+
+
+@login_required(login_url='/Login/')
 def Blog(request):
     perf = request.user.users
     categotias = Categoria.objects.all()
@@ -11,6 +14,8 @@ def Blog(request):
 
     return render(request,'Centro/Blog.html',{"post":post,"categotias":categotias,"perf":perf})
 
+
+@login_required(login_url='/Login/')
 def Blogfilt(request, Categoria_id):
     perfil = request.user.users
     categotias = Categoria.objects.get(id= Categoria_id)
