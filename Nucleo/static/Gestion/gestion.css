@@ -1,9 +1,15 @@
+html{
+  min-height: 100%;
+  position: relative;
+}
 body {
   font-family: 'Lora';
   background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../Img/bg_main.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  margin: 0;
+  margin-bottom: 40px;
 }
 
 h1,
@@ -232,11 +238,11 @@ p {
 
 .footer {
   background-color: rgba(8, 6, 22, 0.8);
-  height: 205px;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  text-align: center;
-  padding: 1em;
-  align-self: flex-end;
+  height: 40px;
+  color: white;
 }
 
 
