@@ -232,6 +232,8 @@ p {
 
 .footer {
    background-color: rgba(8, 6, 22, 0.8);
+   width: 100%;
+  height: 205px;
 }
 
 
