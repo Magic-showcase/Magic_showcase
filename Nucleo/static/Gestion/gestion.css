@@ -1,4 +1,7 @@
-
+html{
+  min-height: 100%;
+  position: relative;
+}
 body {
   font-family: 'Lora';
   background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../Img/bg_main.jpg");
