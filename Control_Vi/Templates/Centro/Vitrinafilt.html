@@ -24,10 +24,10 @@
 	<br>
 </section>
 {% for m in Showcvi %}
-<section class="hero mt-5">
+<section class="hero mt-5" >
 <div class="container" class="hero mt-5">
 <div class="row">
-	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
+	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; ">
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
 		<p class="text-info">{{m.Seccion}}</p>	
 		{% if posi == '6' %}
@@ -81,7 +81,7 @@
 		{% endif %}
 		</form>
 	</div>
-	<div class="col-sm-6" style="background-color:#c5e7fb; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+	<div class="col-sm-6" style="background-color:#c5e7fb; ">
 		<div ><h1 class="text-info">{{m.Slot7}}</h1></div>
 		<div style=" position: absolute; top: 5px; right: 10px;">
 			<a  title="Editar" href="{% url 'Edivi' m.id%}">

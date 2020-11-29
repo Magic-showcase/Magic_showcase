@@ -87,6 +87,7 @@ p {
 
 #mainNav {
   background-color: #2c0632;
+  width: 100%;
   opacity: 0.9;
   font-family: 'Raleway';
 }
