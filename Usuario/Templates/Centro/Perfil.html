@@ -9,7 +9,7 @@
                 <div id="login-box" class="col-md-12">
             <form action="{% url 'Perfil' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="media">
+                <div class="media-body">
                     {% if perfil.Photo %}
                         <img class="img-fluid" src="{{ perfil.Photo.url }}" alt="Image" style="height: 100px;  width: 100px;  background-repeat: no-repeat; background-position: 50%; border-radius: 50%; background-size: 100% auto; ">
                     {% else %}
