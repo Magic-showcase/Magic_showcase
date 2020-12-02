@@ -27,7 +27,7 @@
 <section class="hero mt-5" >
 <div class="container" class="hero mt-5">
 <div class="row">
-	<div class="col-sm-6" style="background-color: #EEBCEF; text-align: center; ">
+	<div class="col-sm-6" style="background-color: rgb(22, 3, 56); text-align: center; opacity: 0.9; ">
 		<h1 class="text-primary">{{m.Nombrevi}}</h1>
 		<p class="text-info">{{m.Seccion}}</p>	
 		{% if posi == '6' %}
@@ -81,7 +81,7 @@
 		{% endif %}
 		</form>
 	</div>
-	<div class="col-sm-6" style="background-color:#c5e7fb; ">
+	<div class="col-sm-6" style="background-color:rgb(3, 16, 56); ">
 		<div ><h1 class="text-info">{{m.Slot7}}</h1></div>
 		<div style=" position: absolute; top: 5px; right: 10px;">
 			<a  title="Editar" href="{% url 'Edivi' m.id%}">
@@ -94,55 +94,55 @@
 		<div id="slot1" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot1.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot1.Seccion}}</p>
-			<p>{{m.Slot1.Contenido}}</p>
+			<p class="text-warning">{{m.Slot1.Contenido}}</p>
 			<p class="text-danger">${{m.Slot1.Precio}}</p>
 		</div>
 		<div id="slot2" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot2.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot2.Seccion}}</p>
-			<p>{{m.Slot2.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot2.Contenido}}</p>
 			<p class="text-danger">${{m.Slot2.Precio}}</p>
 		</div>
 		<div id="slot3" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot3.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot3.Seccion}}</p>
-			<p>{{m.Slot3.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot3.Contenido}}</p>
 			<p class="text-danger">${{m.Slot3.Precio}}</p>
 		</div>
 		<div id="slot4" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot4.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot4.Seccion}}</p>
-			<p>{{m.Slot4.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot4.Contenido}}</p>
 			<p class="text-danger">${{m.Slot4.Precio}}</p>
 		</div>
 		<div id="slot5" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot5.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot5.Seccion}}</p>
-			<p>{{m.Slot5.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot5.Contenido}}</p>
 			<p class="text-danger">${{m.Slot5.Precio}}</p>
 		</div>
 		<div id="slot6" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot6.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot6.Seccion}}</p>
-			<p>{{m.Slot6.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot6.Contenido}}</p>
 			<p class="text-danger">${{m.Slot6.Precio}}</p>
 		</div>
 		<div id="slot7" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot7.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot7.Seccion}}</p>
-			<p>{{m.Slot7.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot7.Contenido}}</p>
 			<p class="text-danger">${{m.Slot7.Precio}}</p>
 		</div>
 		<div id="slot8" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot8.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot8.Seccion}}</p>
-			<p>{{m.Slot8.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot8.Contenido}}</p>
 			<p class="text-danger">${{m.Slot8.Precio}}</p>
 		</div>
 		<div id="slot9" class="collapse mt-5">
 			<img class="img-fluid" width="250" height="200" style="border-radius: 20px;"  src="{{m.Slot9.Imagen.url}}" alt="Image">
 			<p class="text-success">{{m.Slot9.Seccion}}</p>
-			<p>{{m.Slot9.Contenido}}</p>
+			<p  class="text-warning">{{m.Slot9.Contenido}}</p>
 			<p class="text-danger">${{m.Slot9.Precio}}</p>
 		</div>
 			<form action="{% url 'vifil' m.id %}" method="POST" style="color: antiquewhite; text-align: center;">
